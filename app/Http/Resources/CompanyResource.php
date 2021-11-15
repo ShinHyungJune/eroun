@@ -2,10 +2,9 @@
 
 namespace App\Http\Resources;
 
-use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EventResource extends JsonResource
+class CompanyResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,12 +16,9 @@ class EventResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "worker" => $this->worker,
             "title" => $this->title,
             "description" => $this->description,
-            "img" => $this->img,
-            "count_view" => $this->count_view,
-            "created_at" => Carbon::make($this->created_at)->format("Y-m-d H:i")
+            "order" => $this->order
         ];
     }
 }

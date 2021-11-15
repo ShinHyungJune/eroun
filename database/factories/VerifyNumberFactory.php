@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Event;
-use Carbon\Carbon;
+use App\Models\VerifyNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class EventFactory extends Factory
+class VerifyNumberFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Event::class;
+    protected $model = VerifyNumber::class;
 
     /**
      * Define the model's default state.
@@ -23,11 +22,9 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            "worker" => false,
-            "title" => $this->faker->title,
-            "description" => $this->faker->paragraph,
-            "count_view" => rand(1,1000),
-            "created_at" => Carbon::now()
+            "contact" => $this->faker->text,
+            "number" => rand(0, 1000),
+            "verified" => false
         ];
     }
 }

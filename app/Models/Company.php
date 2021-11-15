@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Event extends Model implements HasMedia
+class Company extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
-    protected $fillable = ["worker", "title", "description", "count_view"];
+    protected $fillable = [
+        "title",
+        "description",
+        "order"
+    ];
 
     protected $appends = ["img"];
 

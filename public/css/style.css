@@ -188,6 +188,7 @@
 }
 .items.type01 .item:hover .m-ratioBox-wrap {box-shadow:4px 8px 6px rgba(0,0,0,0.16); transform:translate(-6px, -6px);}
 .items.type01 .category {margin-bottom:4px; font-size:14px; color:#999999;}
+.items.type01 .category .text {margin-right:8px; font-size:14px; color:#999999;}
 .items.type01 .bottom {display:flex; justify-content: space-between; align-items: flex-end;}
 .items.type01 .bottom .title {font-weight:500; font-size:18px;}
 .items.type01 .bottom .point {display:flex; align-items: center; font-size:18px; color:#DE264C;}

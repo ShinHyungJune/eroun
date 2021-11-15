@@ -22,7 +22,14 @@ class RequestFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "contact" => $this->faker->text,
+            "category" => $this->faker->text,
+            "time" => rand(0, 10),
+            "address" => $this->faker->text,
+            "price" => rand(0, 1000),
+            "style" => $this->faker->text,
+            "comment" => $this->faker->text,
+            "required_at" => $this->faker->dateTime,
         ];
     }
 }

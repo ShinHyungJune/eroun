@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Event;
-use Carbon\Carbon;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class EventFactory extends Factory
+class CompanyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Event::class;
+    protected $model = Company::class;
 
     /**
      * Define the model's default state.
@@ -23,11 +22,9 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            "worker" => false,
             "title" => $this->faker->title,
-            "description" => $this->faker->paragraph,
-            "count_view" => rand(1,1000),
-            "created_at" => Carbon::now()
+            "description" => $this->faker->title,
+            "order" => Company::count(),
         ];
     }
 }

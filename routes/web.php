@@ -41,8 +41,15 @@ Route::get("/mailable", function(){
 
 // 개발
 Route::middleware("auth")->group(function(){
-
+    Route::post("/reviews", [\App\Http\Controllers\ReviewController::class, "store"]);
+    Route::get("/requests", [\App\Http\Controllers\RequestController::class, "index"]);
 });
 
-Route::get("/workers", [\App\Http\Controllers\PageController::class, "workers"]);
-Route::get("/workers/{id}", [\App\Http\Controllers\PageController::class, "worker"]);
+Route::get("/workers", [\App\Http\Controllers\WorkerController::class, "index"]);
+Route::get("/workers/{id}", [\App\Http\Controllers\WorkerController::class, "show"]);
+
+Route::get("/events", [\App\Http\Controllers\EventController::class, "index"]);
+Route::get("/events/{id}", [\App\Http\Controllers\EventController::class, "show"]);
+
+Route::get("/requests/create", [\App\Http\Controllers\RequestController::class, "create"]);
+Route::post("/requests", [\App\Http\Controllers\RequestController::class, "store"]);

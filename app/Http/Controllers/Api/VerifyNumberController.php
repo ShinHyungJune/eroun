@@ -17,7 +17,6 @@ class VerifyNumberController extends ApiController
             "contact" => "required|max:255|unique:users",
         ]);
 
-
         $number = random_int(1000,9999);
 
         $verifyNumber = VerifyNumber::updateOrCreate([
@@ -59,12 +58,9 @@ class VerifyNumberController extends ApiController
 
         $user->update("verified_at", Carbon::now());
 
-        // return $this->respondSuccessfully($verifyNumber, __("response.verifyNumber")["verified"]);
-        return $this->respondSuccessfully($verifyNumber, "성공적으로 인증되었습니다.");
-    }
+        $verifyNumber->delete();
 
-    public function destroy($id)
-    {
-        //
+        // return $this->respondSuccessfully($verifyNumber, __("response.verifyNumber")["verified"]);
+        return $this->respondSuccessfully(null, "성공적으로 인증되었습니다.");
     }
 }

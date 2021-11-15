@@ -2,6 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\InformationResource;
+use App\Http\Resources\UserResource;
+use App\Models\Information;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -36,8 +39,11 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        $information = Information::first();
+
         return array_merge(parent::share($request), [
-            "user" => auth()->user(),
+            "user" => auth()->user() ? UserResource::make(auth()->user()) : null,
+            "information" => $information ? InformationResource::make(Information::first()) : null,
             "flash" => function() use ($request){
                 return [
                     "success" => $request->session()->get("success"),

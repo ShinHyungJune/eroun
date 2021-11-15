@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class WorkersTest extends TestCase
+class WorkerIndexTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -43,7 +43,7 @@ class WorkersTest extends TestCase
         $commonUsers = User::factory(["worker" => false])->count(10)->create();
 
         $this->get("/workers")->assertInertia(function($page) use ($workers){
-            $total = $page->toArray()["props"]["populatedWorkers"]["meta"]["total"];
+            $total = $page->toArray()["props"]["workers"]["meta"]["total"];
 
             $this->assertEquals(count($workers), $total);
         });
@@ -57,7 +57,7 @@ class WorkersTest extends TestCase
         $commonUsers = User::factory(["worker" => false])->count(10)->create();
 
         $this->get("/workers")->assertInertia(function($page) use ($workers){
-            $items = $page->toArray()["props"]["populatedWorkers"]["data"];
+            $items = $page->toArray()["props"]["workers"]["data"];
 
             $this->assertCount(count($workers), $items);
         });

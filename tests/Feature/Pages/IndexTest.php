@@ -4,6 +4,7 @@ namespace Tests\Feature\Pages;
 
 use App\Models\Banner;
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Event;
 use App\Models\Request;
 use App\Models\Review;
@@ -197,6 +198,18 @@ class IndexTest extends TestCase
             $items = $page->toArray()["props"]["events"]["data"];
 
             $this->assertCount(count($events), $items);
+        });
+    }
+
+    /** @test */
+    public function 사용자는_메인페이지에서_협력사_목록을_조회할_수_있다()
+    {
+        $companies = Company::factory()->count(5)->create();
+
+        $this->get("/")->assertInertia(function($page) use ($companies){
+            $items = $page->toArray()["props"]["companies"]["data"];
+
+            $this->assertCount(count($companies), $items);
         });
     }
 }
