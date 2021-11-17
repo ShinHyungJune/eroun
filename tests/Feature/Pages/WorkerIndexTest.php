@@ -62,4 +62,69 @@ class WorkerIndexTest extends TestCase
             $this->assertCount(count($workers), $items);
         });
     }
+
+    /** @test */
+    function 여러카테고리를_포함하는_전문가_목록을_볼_수_있다()
+    {
+        $categories = Category::factory()->count(3)->create();
+
+        $workers = User::factory(["worker" => true])->count(8)->create();
+
+        $workers[0]->categories()->attach($categories[0]);
+        $workers[1]->categories()->attach($categories[1]);
+        $workers[2]->categories()->attach($categories[1]);
+
+        $filterCategories = [];
+
+        $filterCategories[] = $categories[0]->id;
+
+        $this->json("get","/workers", [
+            "category_ids" => $filterCategories
+        ])->assertInertia(function($page) use ($workers){
+            $items = $page->toArray()["props"]["workers"]["data"];
+
+            $this->assertCount(1, $items);
+            $this->assertEquals($items[0]["id"], $workers[0]->id);
+        });
+
+        $filterCategories[] = $categories[1]->id;
+
+        $this->json("get","/workers", [
+            "category_ids" => $filterCategories
+        ])->assertInertia(function($page) use ($workers){
+            $items = $page->toArray()["props"]["workers"]["data"];
+
+            $this->assertCount(3, $items);
+        });
+
+        $filterCategories = [];
+
+        $this->json("get","/workers", [
+            "category_ids" => $filterCategories
+        ])->assertInertia(function($page) use ($workers){
+            $items = $page->toArray()["props"]["workers"]["data"];
+
+            $this->assertCount(count($workers), $items);
+        });
+    }
+
+    /** @test */
+    function 이름에_특정단어를_포함하는_전문가_목록을_볼_수_있다()
+    {
+        $word = "123";
+
+        $includeWorkers = User::factory(["worker" => true, "name" => "test".$word."444"])->count(8)->create();
+
+        $excludeWorkers = User::factory(["worker" => true])->count(6)->create();
+
+        $commonUsers = User::factory(["worker" => false])->count(10)->create();
+
+        $this->json("get", "/workers", [
+            "word" => $word
+        ])->assertInertia(function($page) use ($includeWorkers){
+            $items = $page->toArray()["props"]["workers"]["data"];
+
+            $this->assertCount(count($includeWorkers), $items);
+        });
+    }
 }

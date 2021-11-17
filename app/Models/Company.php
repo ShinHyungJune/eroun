@@ -17,6 +17,11 @@ class Company extends Model implements HasMedia
         "order"
     ];
 
+    public function registerMediaCollections():void
+    {
+        $this->addMediaCollection('img')->singleFile();
+    }
+
     protected $appends = ["img"];
 
     public function getImgAttribute()

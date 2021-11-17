@@ -31,6 +31,8 @@
                     <img src="/img/circleYoutube.png" alt="">
                 </Link>
             </div>
+
+
         </div>
     </footer>
 </template>
@@ -40,8 +42,8 @@ export default {
     components: {Link},
     data(){
         return {
-            information : this.$page.props.information
+            information : this.$page.props.information.data
         }
-    }
+    },
 }
 </script>

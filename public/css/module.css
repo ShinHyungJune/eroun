@@ -363,7 +363,7 @@
 /* box */
 .m-ratioBox-wrap {width:100%; padding-top:100%; position:relative; border:1px solid #ebebeb; overflow:hidden;}
 .m-ratioBox-wrap .m-ratioBox {position:absolute; top:0; left:0; right:0; bottom:0;}
-.m-ratioBox-wrap .m-ratioBox:after {content:""; width:179px; height:63px; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:url("../img/logo_footer.png") no-repeat; background-size:100%;}
+.m-ratioBox-wrap .m-ratioBox:after {content:""; width:83px; height:28px; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:url("../img/logo.png") no-repeat; background-size:100%; opacity:0.4;}
 .m-ratioBox-wrap img {width:100%; position:absolute; left:50%; top:50%; transform:translateY(-50%) translateX(-50%); z-index:1;}
 .m-ratioBox-wrap iframe {width:105%; position:absolute; left:50%; top:50%; transform:translateY(-50%) translateX(-50%); z-index:1;}
 
@@ -449,6 +449,11 @@
 input[type="date"]:focus:before {
     content: '' !important;
 }*/
+
+.m-input-img.type01 input {display:none;}
+.m-input-img.type01 label {display:block; padding-top:74%; background-color:#efefef; transition: all .3s; cursor:pointer;}
+.m-input-img.type01 label:hover {box-shadow:0px 3px 6px rgba(0,0,0,0.16);}
+
 .m-input-number.type01 {display:flex; align-items:center; position:relative;}
 .m-input-number.type01 .text {margin-left:20px; color:#777;}
 .m-input-number.type01 input {width:170px; height:60px; padding:0px 20px; border:1px solid #e1e1e1; border-radius:5px; text-align: center;
@@ -515,9 +520,9 @@ input[type="date"]:focus:before {
 .m-input-search.type01 .m-input-search-btn {content:""; width:40px; height:40px; position:absolute; right:0; top:0; background:url("../img/icon_search_black.png") no-repeat; background-position:center;}
 .m-input-search.type01 .m-input-text input {width:100%; height:100%; padding:8px 10px; border:none;}
 
-.m-input-withBtn {max-width:400px; padding-right:85px; position:relative;}
-.m-input-withBtn .m-input-text {}
-.m-input-withBtn .m-input-btn {position:absolute; right:0px; top:0;}
+.m-input-withBtn.type01 {display:flex;}
+.m-input-withBtn.type01 .m-input-text {flex:auto;}
+.m-input-withBtn.type01 .m-input-btn {margin-left:12px; padding:0px 16px; color:#fff; background-color:#333; white-space: nowrap;}
 
 .m-input-email.type01:after {display:block; content:""; clear:both;}
 .m-input-email.type01 input {width:31.66%; float:left;}
@@ -574,7 +579,7 @@ input[type="date"]:focus:before {
 .m-loading {position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);}
 .m-loading-text {margin-top:5px; color:#fff;}
 
-.m-empty.type01 {padding:80px 20px; font-size:18px; border-top:1px solid #e1e1e1; border-bottom:1px solid #e1e1e1; color:#999; text-align: center;}
+.m-empty.type01 {padding:80px 20px; font-size:18px; border:1px solid #e1e1e1; color:#999; text-align: center;}
 .m-loading-circle {position:relative;}
 .m-loading-circle:before {content:""; width:50px; height:50px; position:absolute; top:43%; left:47.3%; transform:translate(-50%, -50%);
     border-top: 6px solid rgba(28,112,204, 0.4);
@@ -780,6 +785,7 @@ input[type="date"]:focus:before {
 .m-policy.type01 .title_big {margin-bottom:15px; font-size:18px; font-weight:500;}
 .m-policy.type01 .body {font-size:16px; font-weight:300;}
 .m-policy.type01 .body.bold {font-size:16px; font-weight:bold;}
+pre {white-space: pre-line;}
 
 @media screen and (max-width:768px){
     .m-policy.type01 .title_biggest {margin-top:30px; font-size:20px;}
@@ -829,3 +835,7 @@ input[type="date"]:focus:before {
 .m-policy.type01 .bodies > .body {margin-bottom:0; margin-top:10px; padding-left:12px; position:relative; font-size:14px; color:#777;}
 .m-policy.type01 .bodies > .body:before {content:""; width:4px; height:4px; position:absolute; left:0; top:7px; background-color:#777;}
 .m-policy.type01 .section:last-of-type {margin-bottom:0; padding-bottom:0; border-bottom:none;}
+
+.m-error-page.type01 {padding:200px 0; text-align: center;}
+.m-error-page.type01 .title {margin-bottom:20px; font-size:60px; font-weight:800;}
+.m-error-page.type01 .body {font-size:24px;}

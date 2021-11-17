@@ -27,7 +27,7 @@ class UserResource extends JsonResource
             "verified_at" => $this->verified_at ? $this->verified_at : "",
             "count_request" => $this->count_request,
             "count_view" => $this->count_view,
-            "score" => $this->receivedReviews()->count() > 0 ? $this->receivedReviews()->avg("score") : "",
+            "score" => $this->receivedReviews()->count() > 0 ? number_format($this->receivedReviews()->avg("score"), 1) : "",
             "categories" => CategoryResource::collection($this->categories()->paginate(30)),
             "created_at" => Carbon::make($this->created_at)->format("Y-m-d H:i"),
             "updated_at" => Carbon::make($this->updated_at)->format("Y-m-d H:i")

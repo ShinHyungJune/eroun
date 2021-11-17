@@ -19,6 +19,7 @@ class Request extends Model
         "style",
         "comment",
         "required_at",
+        "user_id"
     ];
 
     public function user()

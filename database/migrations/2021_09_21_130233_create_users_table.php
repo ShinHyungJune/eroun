@@ -35,6 +35,8 @@ class CreateUsersTable extends Migration
             $table->string("social_platform")->nullable();
             $table->unique(["social_id", "social_platform"]);
 
+            $table->boolean("accepted")->default(false);
+
             $table->rememberToken();
             $table->timestamps();
         });

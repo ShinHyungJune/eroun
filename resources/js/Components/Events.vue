@@ -1,7 +1,7 @@
 <template>
     <div class="items type02">
         <div class="item-wrap" v-for="item in items" :key="item.id">
-            <Link :href="`/items/${item.id}`" class="item">
+            <Link :href="`/events/${item.id}`" class="item">
                 <div class="m-ratioBox-wrap">
                     <div class="m-ratioBox">
                         <img :src="item.img ? item.img.url : ''" alt="">
@@ -17,7 +17,11 @@
     </div>
 </template>
 <script>
+    import {Link} from "@inertiajs/inertia-vue";
+
     export default {
+        components: {Link},
+
         props: ["items"]
     }
 </script>

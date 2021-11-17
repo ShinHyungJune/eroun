@@ -2,10 +2,9 @@
 
 namespace App\Http\Resources;
 
-use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ReviewReosurce extends JsonResource
+class RequestCategoryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,11 +16,7 @@ class ReviewReosurce extends JsonResource
     {
         return [
             "id" => $this->id,
-            "user" => UserResource::make($this->user),
-            "worker" => UserResource::make($this->worker),
-            "description" => $this->description,
-            "score" => $this->score,
-            "created_at" => Carbon::make($this->created_at)->format("Y-m-d H:i")
+            "title" => $this->title
         ];
     }
 }

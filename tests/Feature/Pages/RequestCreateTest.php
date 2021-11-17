@@ -84,7 +84,7 @@ class RequestCreateTest extends TestCase
         ];
 
         $this->post("/requests", $form)->assertInertia(function ($page) {
-            $page->component("/Users/Update");
+            $page->component("Users/Update");
         });
     }
 

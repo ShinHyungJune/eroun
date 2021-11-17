@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\RequestCategoryResource;
 use App\Http\Resources\RequestResource;
+use App\Http\Resources\RequestStyleResource;
+use App\Models\RequestCategory;
+use App\Models\RequestStyle;
 use App\Models\User;
 use App\Models\VerifyNumber;
 use Illuminate\Http\Request;
@@ -14,14 +18,34 @@ class RequestController extends Controller
     {
         $requests = auth()->user()->requests()->orderBy("created_at", "desc")->paginate(20);
 
-        return Inertia::render("/Requests/Index", [
-            "requests" => RequestResource::collection($requests)
+        return Inertia::render("Requests/Index", [
+            "requests" => RequestResource::collection($requests),
         ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return Inertia::render("/Requests/Create");
+        $request->validate([
+            "worker_id" => "nullable|integer"
+        ]);
+
+        $requestStyles = RequestStyle::orderBy("created_at", "asc")->paginate(30);
+
+        $requestCategories = RequestCategory::orderBy("created_at", "asc")->paginate(30);
+
+        $workerId = "";
+
+        if($request->worker_id){
+            $worker = User::find($request->worker_id);
+
+            $workerId = $worker ? $worker->id : "";
+        }
+
+        return Inertia::render("Requests/Create", [
+            "requestStyles" => RequestStyleResource::collection($requestStyles),
+            "requestCategories" => RequestCategoryResource::collection($requestCategories),
+            "worker_id" => $workerId
+        ]);
     }
 
     public function store(Request $request)
@@ -45,12 +69,14 @@ class RequestController extends Controller
             $verifyNumber = VerifyNumber::where("contact", $request->contact)->first();
 
             if(!$verifyNumber || !$verifyNumber->verified)
-                return redirect()->back()->with("fail", "인증되지 않은 번호입니다");
+                return redirect()->back()->with("error", "인증되지 않은 번호입니다");
+
+            $verifyNumber->delete();
         }
 
         if(auth()->user()){
             if(!auth()->user()->contact)
-                return Inertia::render("/Users/Update");
+                return redirect("/users/edit")->with("error", "연락처를 등록해주세요!");
 
             $request["user_id"] = auth()->id();
 
@@ -61,7 +87,7 @@ class RequestController extends Controller
             $worker = User::find($request->worker_id);
 
             if(!$worker || !$worker->worker)
-                return redirect()->back()->with("fail", "존재하지 않는 전문가입니다");
+                return redirect()->back()->with("error", "존재하지 않는 전문가입니다");
         }
 
         \App\Models\Request::create($request->all());
@@ -69,6 +95,6 @@ class RequestController extends Controller
         if($verifyNumber)
             $verifyNumber->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with("success", "성공적으로 처리되었습니다.");
     }
 }

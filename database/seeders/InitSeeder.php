@@ -4,7 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Company;
+use App\Models\Event;
 use App\Models\Information;
+use App\Models\RequestCategory;
+use App\Models\RequestStyle;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -57,6 +60,21 @@ class InitSeeder extends Seeder
             "youtube" => "https://naver.com",
         ];
 
+        $requestCategories = [
+            "온라인 행사",
+            "컨퍼런스/세미나",
+            "결혼식",
+            "돌잔치"
+        ];
+
+        $requestStyles = [
+            "품격",
+            "차분",
+            "경쾌",
+            "유머러스",
+            "감동"
+        ];
+
         foreach($categories as $category){
             Category::factory()->create([
                 "title" => $category
@@ -64,10 +82,12 @@ class InitSeeder extends Seeder
         }
 
         foreach($workers as $worker){
-            User::factory()->create([
+            $user = User::factory()->create([
                 "worker" => true,
                 "name" => $worker
             ]);
+
+            $user->categories()->attach(Category::inRandomOrder()->first());
         }
 
         foreach($companies as $company){
@@ -76,6 +96,24 @@ class InitSeeder extends Seeder
             ]);
         }
 
+        foreach($events as $event){
+            Event::factory()->create([
+                "title" => $event
+            ]);
+        }
+
         Information::create($information);
+
+        foreach($requestCategories as $requestCategory){
+            RequestCategory::create([
+                "title" => $requestCategory
+            ]);
+        }
+
+        foreach($requestStyles as $requestStyle){
+            RequestStyle::create([
+                "title" => $requestStyle
+            ]);
+        }
     }
 }

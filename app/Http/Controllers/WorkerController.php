@@ -27,21 +27,28 @@ class WorkerController extends Controller
 
         $align = $request->align ? $request->align : "desc";
 
-        if($request->category_ids)
-            $workers = $workers->whereHas("categories", function($query) use ($request){
-                $query->whereIn("categories.id", $request->category_ids);
+        $categoryIds =  $request->category_ids ? $request->category_ids : [];
+
+        $word = $request->word ? $request->word : "";
+
+        if($categoryIds && $categoryIds != []) {
+            $workers = $workers->whereHas("categories", function ($query) use ($categoryIds) {
+                $query->whereIn("categories.id", $categoryIds);
             });
+        }
 
-        if($request->word)
-            $workers = $workers->where("name", "LIKE", "%".$request->word."%");
+        $workers = $workers->where("name", "LIKE", "%".$word."%");
 
-        $categories = Category::orderBy("order", "asc")->paginate(30);
+        $categories = Category::orderBy("order", "asc")->paginate(30, ["*"], "categories_page");
 
-        $workers = $workers->where("worker", true)->orderBy($orderBy, $align)->paginate(16);
+        $workers = $workers->where("worker", true)->orderBy($orderBy, $align)->paginate(30);
 
         return Inertia::render("Workers/Index", [
             "workers" => UserResource::collection($workers),
-            "categories" => CategoryResource::collection($categories)
+            "categories" => CategoryResource::collection($categories),
+            "orderBy" => $orderBy,
+            "category_ids" => $categoryIds,
+            "word" => $word
         ]);
     }
 
@@ -54,9 +61,9 @@ class WorkerController extends Controller
 
         $worker->update(["count_view" => $worker->count_view + 1]);
 
-        $reviews = $worker->receivedReviews()->orderBy("created_at", "desc")->paginate(30);
+        $reviews = $worker->receivedReviews()->orderBy("created_at", "desc")->paginate(60);
 
-        return Inertia::render("Workers/Index", [
+        return Inertia::render("Workers/Show", [
             "worker" => UserResource::make($worker),
             "reviews" => ReviewReosurce::collection($reviews)
         ]);

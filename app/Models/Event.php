@@ -15,6 +15,12 @@ class Event extends Model implements HasMedia
 
     protected $appends = ["img"];
 
+    public function registerMediaCollections():void
+    {
+        $this->addMediaCollection('img')->singleFile();
+    }
+
+
     public function getImgAttribute()
     {
         if($this->hasMedia('img')) {

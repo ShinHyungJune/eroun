@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoryResource;
+use App\Models\Category;
 use App\Models\User;
 use App\Models\VerifyNumber;
 use Carbon\Carbon;
@@ -25,33 +27,77 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
                 "social_id" => $socialUser->id,
                 "social_platform" => $social
             ]);
-
-            Auth::login($user);
-
-            return Inertia::render("Users/Update");
         }
 
         Auth::login($user);
+
+        if(!$user->contact)
+            return redirect("users/edit");
 
         return redirect()->intended();
     }
 
     public function update(Request $request)
     {
-        $verifyNumber = VerifyNumber::where("contact", $request->contact)->first();
+        $request["worker"] = $request->boolean("worker");
 
-        if(!$verifyNumber || !$verifyNumber->verified)
-            return redirect()->back()->with("fail", "인증되지 않은 번호입니다");
+        $request->validate([
+            "worker" => "required|boolean",
+            "contact" => "required|string|max:500",
+            "name" => "required|string|max:500",
+            "address" => "required|string|max:500",
+            "email" => "required|string|max:500",
+            "category_id" => "required|integer",
+        ]);
+
+        if($request->worker) {
+            $request->validate([
+                "img" => "nullable|image|max:20000",
+                "career" => "required|string|max:500"
+            ]);
+        }
+
+        $category = Category::find($request->category_id);
+
+        if($category) {
+            auth()->user()->categories()->sync([$category->id]);
+        }
+
+        if($request->contact != auth()->user()->contact)
+            return redirect()->back()->with("error", "인증되지 않은 연락처입니다.");
 
         auth()->user()->update([
-            "contact" => $request->contact,
+            "worker" => $request->boolean("worker"),
             "name" => $request->name,
             "address" => $request->address,
             "email" => $request->email,
+            "career" => $request->career
         ]);
 
-        $verifyNumber->delete();
+        if($request->img)
+            auth()->user()->addMedia($request->img)->toMediaCollection("img", "s3");
 
-        return redirect()->intended()->with("success", "성공적으로 처리되었습니다.");
+        return redirect("/")->with("success", "성공적으로 처리되었습니다.");
+    }
+
+    public function loginForm()
+    {
+        return Inertia::render("Users/Login");
+    }
+
+    public function edit(Request $request)
+    {
+        $categories = Category::paginate(30);
+
+        return Inertia::render("Users/Edit", [
+            "categories" => CategoryResource::collection($categories)
+        ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect("/");
     }
 }

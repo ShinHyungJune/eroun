@@ -20,7 +20,7 @@ class EventController extends Controller
 
         // 전문가용 이벤트를 조회하려고 한다면
         if($request->worker && (!auth()->user() || !auth()->user()->worker))
-            return Inertia::render("Errors/403");
+            return redirect("403");
 
         $events = new Event();
 
@@ -28,15 +28,19 @@ class EventController extends Controller
 
         $align = $request->align ? $request->align : "desc";
 
-        $worker = $request->worker ? $request->worker : false;
+        $worker = $request->worker ? $request->worker : 0;
 
-        if($request->word)
-            $events = $events->where("title", "LIKE", "%".$request->word."%");
+        $word = $request->word ? $request->word : "";
+
+        $events = $events->where("title", "LIKE", "%".$word."%");
 
         $events = $events->where("worker", $worker)->orderBy($orderBy, $align)->paginate(9);
 
         return Inertia::render("Events/Index", [
             "events" => EventResource::collection($events),
+            "orderBy" => $orderBy,
+            "word" => $word,
+            "worker" => $worker
         ]);
     }
 

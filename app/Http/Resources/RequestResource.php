@@ -25,7 +25,7 @@ class RequestResource extends JsonResource
             "style" => $this->style,
             "comment" => $this->comment,
             "required_at" => Carbon::make($this->required_at)->format("Y-m-d H:i"),
-            "created_at" => Carbon::make($this->created_at)->format("M.D")
+            "created_at" => Carbon::make($this->created_at)->format("m.d")
         ];
     }
 }

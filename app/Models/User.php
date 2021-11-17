@@ -29,7 +29,10 @@ class User extends Authenticatable implements HasMedia
         'password',
         'count_request',
         'count_view',
-        "verified_at"
+        "verified_at",
+        "social_id",
+        "social_platform",
+        "accepted"
     ];
 
     /**
@@ -52,6 +55,11 @@ class User extends Authenticatable implements HasMedia
     ];
 
     protected $appends = ["img"];
+
+    public function registerMediaCollections():void
+    {
+        $this->addMediaCollection('img')->singleFile();
+    }
 
     public function getImgAttribute()
     {

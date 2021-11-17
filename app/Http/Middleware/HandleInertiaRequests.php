@@ -42,8 +42,8 @@ class HandleInertiaRequests extends Middleware
         $information = Information::first();
 
         return array_merge(parent::share($request), [
-            "user" => auth()->user() ? UserResource::make(auth()->user()) : null,
-            "information" => $information ? InformationResource::make(Information::first()) : null,
+            "user" => auth()->user() ? UserResource::make(auth()->user()) : "",
+            "information" => $information ? InformationResource::make(Information::first()) : "",
             "flash" => function() use ($request){
                 return [
                     "success" => $request->session()->get("success"),

@@ -56,4 +56,9 @@ class PageController extends Controller
             "companies" => CompanyResource::collection($companies)
         ]);
     }
+
+    public function privacyPolicy()
+    {
+        return Inertia::render("Policies/Privacy");
+    }
 }
