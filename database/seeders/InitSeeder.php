@@ -84,7 +84,8 @@ class InitSeeder extends Seeder
         foreach($workers as $worker){
             $user = User::factory()->create([
                 "worker" => true,
-                "name" => $worker
+                "name" => $worker,
+                "accepted" => true
             ]);
 
             $user->categories()->attach(Category::inRandomOrder()->first());
