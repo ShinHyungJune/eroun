@@ -4167,6 +4167,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -4175,6 +4177,7 @@ __webpack_require__.r(__webpack_exports__);
         category: "",
         time: "",
         address: "",
+        address_detail: "",
         contact: "",
         price: "",
         style: "",
@@ -4219,6 +4222,20 @@ __webpack_require__.r(__webpack_exports__);
         alert(error.response.data.message);
       });
     }
+  },
+  mounted: function mounted() {
+    var self = this;
+    document.getElementById("address").addEventListener("click", function () {
+      //주소입력칸을 클릭하면
+      //카카오 지도 발생
+      new daum.Postcode({
+        oncomplete: function oncomplete(data) {
+          //선택시 입력값 세팅
+          self.form.address = data.address;
+          document.getElementById("address_detail").focus(); // 주소 넣기
+        }
+      }).open();
+    });
   }
 });
 
@@ -41740,7 +41757,7 @@ var render = function() {
                     expression: "form.address"
                   }
                 ],
-                attrs: { type: "text", placeholder: "장소명 또는 주소" },
+                attrs: { type: "text", placeholder: "주소", id: "address" },
                 domProps: { value: _vm.form.address },
                 on: {
                   input: function($event) {
@@ -41748,6 +41765,32 @@ var render = function() {
                       return
                     }
                     _vm.$set(_vm.form, "address", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.address_detail,
+                    expression: "form.address_detail"
+                  }
+                ],
+                staticStyle: { "margin-top": "10px" },
+                attrs: {
+                  type: "text",
+                  placeholder: "상세주소",
+                  id: "address_detail"
+                },
+                domProps: { value: _vm.form.address_detail },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "address_detail", $event.target.value)
                   }
                 }
               })

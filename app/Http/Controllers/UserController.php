@@ -47,7 +47,7 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
             "name" => "required|string|max:500",
             "address" => "required|string|max:500",
             "email" => "required|string|max:500",
-            "category_id" => "required|integer",
+            "category_id" => "nullable|integer",
         ]);
 
         if($request->worker) {
