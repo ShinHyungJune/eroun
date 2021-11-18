@@ -24,20 +24,20 @@ class PageController extends Controller
 
         $categories = Category::orderBy("order", "asc")->paginate(30);
 
-        $populatedWorkers = User::where("worker", true)
+        $populatedWorkers = User::where("worker", true)->where("accepted", true)
             ->orderBy("count_request", "desc")
             ->paginate(4);
 
-        $recentWorkers = User::where("worker", true)
+        $recentWorkers = User::where("worker", true)->where("accepted", true)
             ->orderBy("updated_at", "desc")
             ->paginate(4);
 
-        $newWorkers = User::where("worker", true)
+        $newWorkers = User::where("worker", true)->where("accepted", true)
             ->orderBy("created_at", "desc")
             ->paginate(4);
 
         $counts = [
-            "workers" => User::where("worker", true)->count(),
+            "workers" => User::where("worker", true)->where("accepted", true)->count(),
             "requests" => \App\Models\Request::count(),
         ];
 

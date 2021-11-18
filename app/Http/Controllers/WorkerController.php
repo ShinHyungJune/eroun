@@ -41,7 +41,7 @@ class WorkerController extends Controller
 
         $categories = Category::orderBy("order", "asc")->paginate(30, ["*"], "categories_page");
 
-        $workers = $workers->where("worker", true)->orderBy($orderBy, $align)->paginate(30);
+        $workers = $workers->where("worker", true)->where("accepted", true)->orderBy($orderBy, $align)->paginate(30);
 
         return Inertia::render("Workers/Index", [
             "workers" => UserResource::collection($workers),
