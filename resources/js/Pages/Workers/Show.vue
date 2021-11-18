@@ -52,7 +52,7 @@
                 <div class="m-empty type01" v-if="!worker.description" style="border:none;">
                     내용이 없습니다.
                 </div>
-                <p class="body" v-html="worker.description"></p>
+                <div class="body" v-html="worker.description"></div>
             </div>
 
             <div class="section type01">
