@@ -43146,7 +43146,7 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        _c("p", {
+        _c("div", {
           staticClass: "body",
           domProps: { innerHTML: _vm._s(_vm.worker.description) }
         })
