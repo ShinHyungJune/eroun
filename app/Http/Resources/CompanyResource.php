@@ -18,7 +18,8 @@ class CompanyResource extends JsonResource
             "id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
-            "order" => $this->order
+            "order" => $this->order,
+            "img" => $this->img ? $this->img : ""
         ];
     }
 }
