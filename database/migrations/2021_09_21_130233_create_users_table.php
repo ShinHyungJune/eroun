@@ -34,7 +34,6 @@ class CreateUsersTable extends Migration
             $table->string("social_id")->nullable();
             $table->string("social_platform")->nullable();
             $table->unique(["social_id", "social_platform"]);
-            $table->text("description")->nullable();
 
             $table->boolean("accepted")->default(false);
 
