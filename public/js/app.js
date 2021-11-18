@@ -41062,7 +41062,7 @@ var render = function() {
               {
                 key: category.id,
                 staticClass: "category",
-                attrs: { href: "/workers?category_id=" + category.id }
+                attrs: { href: "/workers?category_ids[]=" + category.id }
               },
               [
                 _c("div", { staticClass: "img-wrap" }, [
