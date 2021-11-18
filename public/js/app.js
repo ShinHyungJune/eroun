@@ -40340,7 +40340,7 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm.user && _vm.user.worker
+            _vm.user && _vm.user.data.worker
               ? _c(
                   "div",
                   { staticClass: "nav" },

@@ -23,7 +23,7 @@
                         <Link href="/events" class="text">행사/이벤트</Link>
                     </div>
 
-                    <div class="nav" v-if="user && user.worker">
+                    <div class="nav" v-if="user && user.data.worker">
                         <Link href="/events?worker=1" class="text">전문가소식</Link>
                     </div>
 
