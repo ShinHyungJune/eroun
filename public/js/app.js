@@ -42305,131 +42305,6 @@ var render = function() {
           }
         },
         [
-          _vm.form.worker == 1
-            ? _c("div", { staticClass: "m-input-wrap type01" }, [
-                _c("div", { staticClass: "m-input-img type01" }, [
-                  _c("input", {
-                    attrs: { type: "file", id: "img", accept: "image/*" },
-                    on: { change: _vm.changeFile }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    { staticClass: "m-ratioBox-wrap", attrs: { for: "img" } },
-                    [
-                      _c("div", { staticClass: "m-ratioBox" }, [
-                        _c("img", { attrs: { src: _vm.preview, alt: "" } })
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _vm.form.errors.img
-                  ? _c("p", { staticClass: "m-input-error" }, [
-                      _vm._v(_vm._s(_vm.form.errors.img))
-                    ])
-                  : _vm._e()
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.form.worker == 1
-            ? _c("div", { staticClass: "m-input-wrap type01" }, [
-                _c("div", { staticClass: "m-input-select type01" }, [
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.category_id,
-                          expression: "form.category_id"
-                        }
-                      ],
-                      attrs: { name: "", id: "" },
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.form,
-                            "category_id",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
-                      }
-                    },
-                    [
-                      _c(
-                        "option",
-                        { attrs: { value: "", disbled: "", selected: "" } },
-                        [_vm._v("카테고리")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.categories.data, function(category) {
-                        return _c(
-                          "option",
-                          {
-                            key: category.id,
-                            domProps: { value: category.id }
-                          },
-                          [_vm._v(_vm._s(category.title))]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ]),
-                _vm._v(" "),
-                _vm.form.errors.category_id
-                  ? _c("p", { staticClass: "m-input-error" }, [
-                      _vm._v(_vm._s(_vm.form.errors.category_id))
-                    ])
-                  : _vm._e()
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.form.worker == 1
-            ? _c("div", { staticClass: "m-input-wrap type01" }, [
-                _c("div", { staticClass: "m-input-text type01" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.career,
-                        expression: "form.career"
-                      }
-                    ],
-                    attrs: { type: "text", placeholder: "경력" },
-                    domProps: { value: _vm.form.career },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.form, "career", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _vm.form.errors.career
-                  ? _c("p", { staticClass: "m-input-error" }, [
-                      _vm._v(_vm._s(_vm.form.errors.career))
-                    ])
-                  : _vm._e()
-              ])
-            : _vm._e(),
-          _vm._v(" "),
           _c("div", { staticClass: "m-input-wrap type01" }, [
             _c("div", { staticClass: "m-input-select type01" }, [
               _c(
@@ -42559,7 +42434,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                        인증번호 발송\n                    "
+                        "\n                            인증번호 발송\n                        "
                       )
                     ]
                   )

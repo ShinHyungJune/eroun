@@ -7,7 +7,7 @@
             </div>
 
             <form class="form type02" @submit.prevent="update">
-                <div class="m-input-wrap type01" v-if="form.worker == 1">
+<!--                <div class="m-input-wrap type01" v-if="form.worker == 1">
                     <div class="m-input-img type01">
                         <input type="file" id="img" accept="image/*" @change="changeFile">
 
@@ -34,7 +34,7 @@
                         <input type="text" placeholder="경력" v-model="form.career">
                     </div>
                     <p class="m-input-error" v-if="form.errors.career">{{ form.errors.career }}</p>
-                </div>
+                </div>-->
                 <div class="m-input-wrap type01">
                     <div class="m-input-select type01">
                         <select name="" id="" v-model="form.worker">
