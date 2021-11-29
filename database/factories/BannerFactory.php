@@ -23,9 +23,6 @@ class BannerFactory extends Factory
     {
         return [
             "order" => Banner::count(),
-            "title" => $this->faker->title,
-            "description" => $this->faker->paragraph,
-            "color" => $this->faker->title,
             "secret" => false
         ];
     }

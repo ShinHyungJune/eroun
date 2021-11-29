@@ -16,9 +16,6 @@ class CreateBannersTable extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->integer("order")->default(0);
-            $table->string("title");
-            $table->string("description");
-            $table->string("color")->default("#DE264C");
             $table->boolean("secret")->default(false);
             $table->timestamps();
         });

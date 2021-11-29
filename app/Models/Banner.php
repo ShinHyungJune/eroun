@@ -13,17 +13,33 @@ class Banner extends Model implements HasMedia
 
     protected $fillable = ["order", "title", "description", "color", "secret"];
 
-    protected $appends = ["img"];
+    protected $appends = ["mobile", "pc"];
 
     public function registerMediaCollections():void
     {
-        $this->addMediaCollection('img')->singleFile();
+        $this->addMediaCollection('mobile')->singleFile();
+
+        $this->addMediaCollection('pc')->singleFile();
     }
 
-    public function getImgAttribute()
+    public function getMobileAttribute()
     {
-        if($this->hasMedia('img')) {
-            $media = $this->getMedia('img')[0];
+        if($this->hasMedia('mobile')) {
+            $media = $this->getMedia('mobile')[0];
+
+            return [
+                "name" => $media->file_name,
+                "url" => $media->getFullUrl()
+            ];
+        }
+
+        return null;
+    }
+
+    public function getPcAttribute()
+    {
+        if($this->hasMedia('pc')) {
+            $media = $this->getMedia('pc')[0];
 
             return [
                 "name" => $media->file_name,

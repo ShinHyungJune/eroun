@@ -3738,15 +3738,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -41018,49 +41009,34 @@ var render = function() {
             { staticClass: "swiper-wrapper" },
             _vm._l(_vm.banners.data, function(banner) {
               return _c(
-                "div",
+                "Link",
                 {
                   key: banner.id,
-                  staticClass: "swiper-slide",
-                  style: "background-color:" + banner.color + ";"
+                  staticClass: "swiper-slide pc",
+                  attrs: { href: "/requests/create" }
                 },
                 [
-                  _c("div", { staticClass: "wrap" }, [
-                    _c(
-                      "div",
-                      { staticClass: "box-text" },
-                      [
-                        _c("h3", {
-                          staticClass: "title",
-                          domProps: { innerHTML: _vm._s(banner.title) }
-                        }),
-                        _vm._v(" "),
-                        _c("p", {
-                          staticClass: "body",
-                          domProps: { innerHTML: _vm._s(banner.description) }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "Link",
-                          {
-                            staticClass: "btn",
-                            attrs: { href: "/requests/create" }
-                          },
-                          [_vm._v("섭외문의")]
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "visual",
-                      attrs: { src: banner.img ? banner.img.url : "", alt: "" }
-                    })
-                  ])
+                  _c("img", {
+                    staticClass: "visual pc",
+                    style:
+                      "background:url(" +
+                      (banner.pc ? banner.pc.url : "") +
+                      ") no-repeat; background-size:cover;",
+                    attrs: { alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "visual m",
+                    style:
+                      "background:url(" +
+                      (banner.mobile ? banner.mobile.url : "") +
+                      ") no-repeat; background-size:cover;",
+                    attrs: { alt: "" }
+                  })
                 ]
               )
             }),
-            0
+            1
           )
         ]),
         _vm._v(" "),

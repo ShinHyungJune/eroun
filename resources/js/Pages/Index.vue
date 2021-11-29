@@ -4,19 +4,10 @@
             <div class="swiper">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" :style="`background-color:${banner.color};`" v-for="banner in banners.data" :key="banner.id">
-                            <div class="wrap">
-                                <div class="box-text">
-                                    <h3 class="title" v-html="banner.title"></h3>
-
-                                    <p class="body" v-html="banner.description"></p>
-
-                                    <Link href="/requests/create" class="btn">섭외문의</Link>
-                                </div>
-
-                                <img :src="banner.img ? banner.img.url : ''" alt="" class="visual">
-                            </div>
-                        </div>
+                        <Link href="/requests/create" class="swiper-slide pc" v-for="banner in banners.data" :key="banner.id">
+                            <img :style="`background:url(${banner.pc ? banner.pc.url : ''}) no-repeat; background-size:cover;`" alt="" class="visual pc">
+                            <img :style="`background:url(${banner.mobile ? banner.mobile.url : ''}) no-repeat; background-size:cover;`" alt="" class="visual m">
+                        </Link>
                     </div>
                 </div>
 
