@@ -431,9 +431,11 @@
     .m-input-top.type01 {flex-wrap:wrap;}
     .m-input-top.type01 .count {margin-bottom:10px;}
     .m-input-top.type01 .inputs > div {flex:1;}
+    .m-input-top.type01 .inputs > form {flex:1;}
 
 }
-@media screen and (max-width:768px){}
+@media screen and (max-width:768px){
+}
 
 .m-input-text input {display:block; width:100%;}
 .m-input-text.type01 {position:relative;}
