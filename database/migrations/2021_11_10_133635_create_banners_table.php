@@ -17,6 +17,9 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->integer("order")->default(0);
             $table->boolean("secret")->default(false);
+            $table->string("title");
+            $table->text("description");
+            $table->string("color");
             $table->timestamps();
         });
     }
