@@ -30,6 +30,10 @@ $(document).ready(function(){
         $(this).hasClass("active") ? closeSidebar() : openSidebar();
     });
 
+    $(".header .nav").click(function(){
+        closeSidebar();
+    });
+
     $(".m-tabs-tab").click(function(){
         $(".m-tabs-tab").removeClass("active");
         $(this).addClass("active");

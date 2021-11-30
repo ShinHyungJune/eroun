@@ -132,6 +132,7 @@
     .header .right > .navs > .nav > .text {padding:20px 40px; font-weight:500; color:#fff;}
     .header .right > .navs > .nav img {display:none;}
     .header .right > .navs > .nav > .navs {display:block; position:static; transform:none; animation: none;}
+    .header .right > .navs > .nav:hover > .text {color:#fff;}
     .header .right > .navs > .nav:hover .navs {animation:none;}
     .header .right > .navs > .nav > .text:after {display:none;}
     .header .right .utils {width:300px; justify-content: center; margin-left:0; padding:20px;
