@@ -140,7 +140,6 @@
         transition: right .3s cubic-bezier(0.120, 0.870, 0.295, 0.930);
 
     }
-    .header .logo img {width:70px;}
     .header .right > .navs > .nav > .navs > .nav > .text:hover {color:#fff;}
 
 }
