@@ -17,8 +17,8 @@
 #app.sub .header.active .btn-menu {background:url("../img/menu.png") no-repeat; background-position:center;}
 #app.sub .header.active .btn-menu.active {background:url("../img/x-white.png") no-repeat; background-position:center;}
 
-.primary {color:#DE264C;}
-.bg-primary {background-color:#DE264C;}
+.primary {color:#5E9CCB;}
+.bg-primary {background-color:#5E9CCB;}
 .bg-down {background-color:#333;}
 .accent {color:#DBAF47;}
 .bold {font-weight:600;}
@@ -88,11 +88,11 @@
 }
 .header .right > .navs > .nav > .text:after {content:""; width:100%; max-width:0; height:4px;
     position:absolute; left:50%; bottom:0px; transform: translateX(-50%);
-    background-color:#DE264C;
+    background-color:#5E9CCB;
     transition: max-width .6s cubic-bezier(0.120, 0.870, 0.295, 0.930);
 }
 .header .right > .navs > .nav:hover > .text:after {max-width:100%;}
-.header .right > .navs > .nav:hover > .text {color:#DE264C;}
+.header .right > .navs > .nav:hover > .text {color:#5E9CCB;}
 .header .right > .navs > .nav > .navs {
     display:none;
     min-width:250px;
@@ -102,7 +102,7 @@
 .header .right > .navs > .nav > .navs > .nav {margin-bottom:16px;}
 .header .right > .navs > .nav > .navs > .nav:last-child {margin-bottom:0;}
 .header .right > .navs > .nav > .navs > .nav > .text {display:block; transition: all .3s; }
-.header .right > .navs > .nav > .navs > .nav > .text:hover {color:#DE264C;}
+.header .right > .navs > .nav > .navs > .nav > .text:hover {color:#5E9CCB;}
 .header .right > .navs > .nav img {margin-right:8px; position:relative; top:3px;}
 .header .right .utils {display:flex; align-items: center; margin-left:40px;}
 .header .right .utils .util {display:flex; align-items: center; position:relative; color:#fff;}
@@ -122,7 +122,7 @@
     .header .logo {width:150px;}
     .header .right.active {right:0;}
     .header .right.active .utils {right:0;}
-    .header .right {width:300px; height:100vh; justify-content: normal; flex-wrap:wrap; position:fixed; right:-300px; top:0; background-color:#DE264C;
+    .header .right {width:300px; height:100vh; justify-content: normal; flex-wrap:wrap; position:fixed; right:-300px; top:0; background-color:#5E9CCB;
         overflow-y:auto;
         flex-grow: 1;
         transition: right .6s cubic-bezier(0.120, 0.870, 0.295, 0.930);
@@ -193,7 +193,7 @@
 .items.type01 .category .text {margin-right:8px; font-size:14px; color:#999999;}
 .items.type01 .bottom {display:flex; justify-content: space-between; align-items: flex-end;}
 .items.type01 .bottom .title {font-weight:500; font-size:18px;}
-.items.type01 .bottom .point {display:flex; align-items: center; font-size:18px; color:#DE264C;}
+.items.type01 .bottom .point {display:flex; align-items: center; font-size:18px; color:#5E9CCB;}
 .items.type01 .bottom .point img {margin-right:8px; position:relative; top:1px;}
 
 @media screen and (max-width:1200px) {
@@ -237,7 +237,7 @@
 
 .items.type03 {border-top:2px solid #333;}
 .items.type03 .item {display:flex; align-items: flex-start; padding:30px 0; border-bottom:1px solid #e1e1e1;}
-.items.type03 .item .date {width:110px; flex:0 0 auto; margin-right:40px; position:relative; top:-12px; font-size:40px; font-weight:600; color:#DE264C;}
+.items.type03 .item .date {width:110px; flex:0 0 auto; margin-right:40px; position:relative; top:-12px; font-size:40px; font-weight:600; color:#5E9CCB;}
 .items.type03 .item .content .title {margin-bottom:10px; font-size:20px; font-weight:600;}
 .items.type03 .item .infos {display:flex; flex-wrap:wrap;}
 .items.type03 .item .info {display:flex; width:25%; margin-top:8px;}
@@ -294,7 +294,7 @@
 .area-main .section01 .categories {border-bottom:1px solid #e1e1e1;}
 .area-main .section01 .categories .wrap {display:flex;}
 .area-main .section01 .categories .category {display:block; flex:1; padding:20px; border-left:1px solid #e1e1e1; text-align: center;}
-.area-main .section01 .categories .category:hover .title {color:#DE264C;}
+.area-main .section01 .categories .category:hover .title {color:#5E9CCB;}
 .area-main .section01 .categories .category .title {margin-top:4px; font-size:18px; font-family: scoreDream; font-weight:500; transition:all .3s;}
 .area-main .section01 .categories .category:last-child {border-right:1px solid #e1e1e1;}
 
@@ -325,8 +325,8 @@
 .area-main .section05 .box {padding:40px 48px; background-color:#fff; border:1px solid #E1E1E1; border-radius:5px;}
 .area-main .section05 .box > .title {margin-bottom:64px; font-size:20px; font-weight:600;}
 .area-main .section05 .box .content .title {margin-bottom:-16px; font-size:24px; font-weight:600;}
-.area-main .section05 .box .content .body {font-size:30px; font-weight:500; color:#DE264C;}
-.area-main .section05 .box .content .body .point {margin-right:8px; font-size:80px; font-weight:600; color:#DE264C;}
+.area-main .section05 .box .content .body {font-size:30px; font-weight:500; color:#5E9CCB;}
+.area-main .section05 .box .content .body .point {margin-right:8px; font-size:80px; font-weight:600; color:#5E9CCB;}
 
 @media screen and (max-width:1200px){
     .area-main .section + .section02 {padding-top:40px;}
@@ -377,7 +377,7 @@ br.m {display:none;}
     .section-title.type01 {margin-top:40px; margin-bottom:20px;}
 }
 
-.section-title.type02 {margin-bottom:40px; padding-top:200px; padding-bottom:40px; background-color:#DE264C;}
+.section-title.type02 {margin-bottom:40px; padding-top:200px; padding-bottom:40px; background-color:#5E9CCB;}
 .section-title.type02 .title {margin-bottom:20px; font-size:40px; font-weight:500; font-family: scoreDream; color:#fff;}
 .section-title.type02 .infos {display:flex; opacity:0.7;}
 .section-title.type02 .info {color:#fff;}
@@ -596,7 +596,7 @@ br.m {display:none;}
 .reviews.type01 .review:last-of-type {margin-bottom:0;}
 .reviews.type01 .body {margin-bottom:12px;}
 .reviews.type01 .bottom {display:flex; align-items: flex-end; justify-content: space-between;}
-.reviews.type01 .bottom .score {font-size:14px; font-weight:500; color:#DE264C;}
+.reviews.type01 .bottom .score {font-size:14px; font-weight:500; color:#5E9CCB;}
 .reviews.type01 .bottom .score img {width:14px;}
 .reviews.type01 .bottom .left {display:flex; align-items: center;}
 .reviews.type01 .bottom .left .writer {margin-left:10px; font-size:14px;}
