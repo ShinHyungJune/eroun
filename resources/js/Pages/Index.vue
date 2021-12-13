@@ -1,5 +1,15 @@
 <template>
     <div class="area-main">
+        <div class="box-video" v-if="show">
+            <button class="btn-close" @click="show = false">
+                <img src="/img/circleClose.png" alt="">
+            </button>
+
+            <video muted autoplay loop>
+                <source src="/video/intro.mp4" type="video/mp4">
+            </video>
+        </div>
+
         <section class="section section01">
             <div class="swiper">
                 <div class="swiper-container">
@@ -169,6 +179,7 @@ export default {
             counts: this.$page.props.counts,
             events: this.$page.props.events,
             companies: this.$page.props.companies,
+            show: true
         }
     },
 

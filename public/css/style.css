@@ -1,4 +1,7 @@
 /* transition: left .6s cubic-bezier(0.120, 0.870, 0.295, 0.930); */
+.box-video {content:""; width:100%; height:100%; position: fixed; top:0; left:0; z-index:1000000000; background-color:black;}
+.box-video .btn-close {position:absolute; top:40px; right:40px; z-index:10;}
+.box-video video {height:100%; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);}
 #app, html ,body {overflow-x:hidden;}
 #app.sub .header {background:transparent; border-bottom:none;}
 #app.sub .header .color {display:none;}
@@ -16,7 +19,11 @@
 #app.sub .header.active .right.active .nav .color {display:none;}
 #app.sub .header.active .btn-menu {background:url("../img/menu.png") no-repeat; background-position:center;}
 #app.sub .header.active .btn-menu.active {background:url("../img/x-white.png") no-repeat; background-position:center;}
-
+@media screen and (max-width:786px) {
+    .box-video video {width:100%; height:auto;}
+    .box-video .btn-close {top:20px; right:20px;}
+    .box-video .btn-close img {width:40px; }
+}
 .primary {color:#5E9CCB;}
 .bg-primary {background-color:#5E9CCB;}
 .bg-down {background-color:#333;}
