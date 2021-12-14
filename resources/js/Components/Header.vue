@@ -3,7 +3,7 @@
         <div class="black"></div>
 
         <div class="wrap">
-            <Link href="/" class="logo">
+            <Link href="/" class="logo" :data="{show: false}">
                 <img src="/img/logo.png" alt="" class="color">
                 <img src="/img/logo-white.png" alt="" class="incolor">
             </Link>
@@ -11,6 +11,10 @@
 
             <div class="right">
                 <nav class="navs">
+                    <div class="nav">
+                        <Link href="/" class="text" :data="{show: false}">HOME</Link>
+                    </div>
+
                     <div class="nav">
                         <Link href="/users/edit" class="text">마이페이지</Link>
                     </div>

@@ -71,7 +71,7 @@
 
                 <div class="m-input-wrap type01">
                     <div class="m-input-text type01">
-                        <input type="text" placeholder="이름" v-model="form.name">
+                        <input type="text" placeholder="이름" v-model="form.name" autocomplete="off">
                         <p class="m-input-error" v-if="form.errors.name">{{ form.errors.name }}</p>
                     </div>
                 </div>

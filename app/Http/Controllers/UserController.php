@@ -23,7 +23,6 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
 
         if(!$user) {
             $user = User::create([
-                "name" => $social.Carbon::now()->format("Y.m.d.H.i.s"),
                 "social_id" => $socialUser->id,
                 "social_platform" => $social
             ]);

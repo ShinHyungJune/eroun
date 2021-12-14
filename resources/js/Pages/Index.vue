@@ -1,6 +1,8 @@
 <template>
     <div class="area-main">
         <div class="box-video" v-if="show">
+            <img src="/img/logo.png" alt="" class="logo">
+
             <button class="btn-close" @click="show = false">
                 <img src="/img/circleClose.png" alt="">
             </button>
@@ -179,7 +181,7 @@ export default {
             counts: this.$page.props.counts,
             events: this.$page.props.events,
             companies: this.$page.props.companies,
-            show: true
+            show: this.$page.props.show == "false" ? false : true
         }
     },
 
@@ -188,6 +190,7 @@ export default {
     },
 
     mounted(){
+        console.log(this.$page.props.show);
         new Swiper('.section01 .swiper .swiper-container', {
             autoplay: {
                 delay: 5000,
