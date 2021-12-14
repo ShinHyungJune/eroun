@@ -42701,23 +42701,7 @@ var staticRenderFns = [
                   attrs: { src: "/img/circleBigKakao.png", alt: "" }
                 }),
                 _vm._v(
-                  "\n                    카카오 간편로그인\n                "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn naver",
-                attrs: { href: "/openLoginPop/naver" }
-              },
-              [
-                _c("img", {
-                  attrs: { src: "/img/circleBigNaver.png", alt: "" }
-                }),
-                _vm._v(
-                  "\n                    네이버 간편로그인\n                "
+                  "\n                        카카오 간편로그인\n                    "
                 )
               ]
             )
