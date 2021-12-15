@@ -12,10 +12,10 @@
                         <img src="/img/circleBigKakao.png" alt="">
                         카카오 간편로그인
                     </a>
-<!--                    <a href="/openLoginPop/naver" class="btn naver">
+                    <a href="/openLoginPop/naver" class="btn naver">
                         <img src="/img/circleBigNaver.png" alt="">
                         네이버 간편로그인
-                    </a>-->
+                    </a>
                 </div>
             </form>
         </div>
