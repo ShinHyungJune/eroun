@@ -574,7 +574,7 @@ br.m {display:none;}
 }
 
 .detail.type01 {display:flex;}
-.detail.type01 .m-ratioBox-wrap {width:550px; margin-right:40px; padding-top:414px; border-radius:10px; overflow:hidden; }
+.detail.type01 .m-ratioBox-wrap {width:550px; margin-right:40px; padding-top:360px; border-radius:10px; overflow:hidden; }
 .detail.type01 .content {display:flex; flex-wrap:wrap; flex:auto;}
 .detail.type01 .content .title {width:100%; margin-top:40px; font-size:24px; font-weight:500;}
 .detail.type01 .content .infos {width:100%;}
