@@ -270,7 +270,11 @@
 .area-main .section {padding:80px 0;}
 .area-main .section + .section {padding-top:0;}
 
+@media screen and (max-width:1600px){
+    .area-main .section01 .swiper-btn {display:none;}
+}
 @media screen and (max-width:1200px){
+
     .area-main .section {margin-bottom:40px; padding:40px 0; border-bottom:1px solid #e1e1e1;}
     .area-main .section .section-title {margin-bottom:20px;}
     .area-main .section .section-title .subtitle {margin-bottom:10px; font-size:16px;}
@@ -281,7 +285,7 @@
 .area-main .section01 {padding:0;}
 .area-main .section01 .swiper {position:relative;}
 .area-main .section01 .swiper-slide {}
-.area-main .section01 .swiper-slide .visual {width:100%; height:706px;}
+.area-main .section01 .swiper-slide .visual {width:100%; height:706px; background-position:center !important;}
 .area-main .section01 .swiper-slide .visual.m {display:none;}
 .area-main .section01 .swiper-slide .wrap {display:flex; align-items: center; justify-content: space-between;}
 .area-main .section01 .swiper-slide .title {margin-bottom:16px; font-size:60px; font-weight:500; font-family: "scoreDream"; color:#fff; }
@@ -290,13 +294,13 @@
     transition:all .3s;
 }
 .area-main .section01 .swiper-slide .btn:hover {color:#333; background-color:#fff;}
-.area-main .section01 .swiper-btns {
-    display:flex; justify-content:space-between; width:1200px; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
+
+.area-main .section01 .swiper-btn {cursor:pointer;
+    position:absolute; top:50%; transform:translate(0%, -50%);
     z-index:2;
 }
-.area-main .section01 .swiper-btn {cursor:pointer;}
-.area-main .section01 .swiper-btn-prev {margin-left:-200px;}
-.area-main .section01 .swiper-btn-next {margin-right:-200px;}
+.area-main .section01 .swiper-btn-prev {left:100px;}
+.area-main .section01 .swiper-btn-next {right:100px;}
 .area-main .section01 .swiper-btn-next img {transform:rotate(180deg);}
 .area-main .section01 .swiper-pagination {bottom:30px; left:50%; transform:translateX(-50%);}
 .area-main .section01 .swiper-pagination-bullet {width:50px; max-width:10px; height:10px; margin:0 8px; background-color:#fff; transition:all .3s; border-radius:15px;}
