@@ -18,8 +18,10 @@ use Inertia\Inertia;
 
 class PageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $show = $request->show ? $request->show : true;
+
         $banners = Banner::orderBy("order", "asc")->where("secret", false)->paginate(30);
 
         $categories = Category::orderBy("order", "asc")->paginate(30);
@@ -46,6 +48,7 @@ class PageController extends Controller
         $companies = Company::orderBy("order", "desc")->paginate(30);
 
         return Inertia::render("Index", [
+            "show" => $show,
             "banners" => BannerResource::collection($banners),
             "categories" => CategoryResource::collection($categories),
             "populatedWorkers" => UserResource::collection($populatedWorkers),
