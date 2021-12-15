@@ -40190,78 +40190,67 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "socials" },
-            [
-              _vm.information.facebook
-                ? _c(
-                    "Link",
-                    {
-                      staticClass: "social",
-                      attrs: {
-                        href: _vm.information.facebook,
-                        target: "_blank"
-                      }
-                    },
-                    [
-                      _c("img", {
-                        attrs: { src: "/img/circleFacebook.png", alt: "" }
-                      })
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.information.instagram
-                ? _c(
-                    "Link",
-                    {
-                      staticClass: "social",
-                      attrs: {
-                        href: _vm.information.instagram,
-                        target: "_blank"
-                      }
-                    },
-                    [
-                      _c("img", {
-                        attrs: { src: "/img/circleInsta.png", alt: "" }
-                      })
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.information.kakao
-                ? _c(
-                    "Link",
-                    {
-                      staticClass: "social",
-                      attrs: { href: _vm.information.kakao, target: "_blank" }
-                    },
-                    [
-                      _c("img", {
-                        attrs: { src: "/img/circleKakao.png", alt: "" }
-                      })
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.information.youtube
-                ? _c(
-                    "Link",
-                    {
-                      staticClass: "social",
-                      attrs: { href: _vm.information.youtube, target: "_blank" }
-                    },
-                    [
-                      _c("img", {
-                        attrs: { src: "/img/circleYoutube.png", alt: "" }
-                      })
-                    ]
-                  )
-                : _vm._e()
-            ],
-            1
-          )
+          _c("div", { staticClass: "socials" }, [
+            _vm.information.facebook
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "social",
+                    attrs: { href: _vm.information.facebook, target: "_blank" }
+                  },
+                  [
+                    _c("img", {
+                      attrs: { src: "/img/circleFacebook.png", alt: "" }
+                    })
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.information.instagram
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "social",
+                    attrs: { href: _vm.information.instagram, target: "_blank" }
+                  },
+                  [
+                    _c("img", {
+                      attrs: { src: "/img/circleInsta.png", alt: "" }
+                    })
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.information.kakao
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "social",
+                    attrs: { href: _vm.information.kakao, target: "_blank" }
+                  },
+                  [
+                    _c("img", {
+                      attrs: { src: "/img/circleKakao.png", alt: "" }
+                    })
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.information.youtube
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "social",
+                    attrs: { href: _vm.information.youtube, target: "_blank" }
+                  },
+                  [
+                    _c("img", {
+                      attrs: { src: "/img/circleYoutube.png", alt: "" }
+                    })
+                  ]
+                )
+              : _vm._e()
+          ])
         ])
       ])
     : _vm._e()

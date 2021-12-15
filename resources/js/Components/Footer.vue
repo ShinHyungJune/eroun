@@ -18,18 +18,18 @@
             </div>
 
             <div class="socials">
-                <Link :href="information.facebook" target="_blank" class="social" v-if="information.facebook">
+                <a :href="information.facebook" target="_blank" class="social" v-if="information.facebook">
                     <img src="/img/circleFacebook.png" alt="">
-                </Link>
-                <Link :href="information.instagram" target="_blank" class="social" v-if="information.instagram">
+                </a>
+                <a :href="information.instagram" target="_blank" class="social" v-if="information.instagram">
                     <img src="/img/circleInsta.png" alt="">
-                </Link>
-                <Link :href="information.kakao" target="_blank" class="social" v-if="information.kakao">
+                </a>
+                <a :href="information.kakao" target="_blank" class="social" v-if="information.kakao">
                     <img src="/img/circleKakao.png" alt="">
-                </Link>
-                <Link :href="information.youtube" target="_blank" class="social" v-if="information.youtube">
+                </a>
+                <a :href="information.youtube" target="_blank" class="social" v-if="information.youtube">
                     <img src="/img/circleYoutube.png" alt="">
-                </Link>
+                </a>
             </div>
 
 
