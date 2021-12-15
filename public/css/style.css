@@ -306,7 +306,7 @@
 .area-main .section01 .swiper-pagination-bullet {width:50px; max-width:10px; height:10px; margin:0 8px; background-color:#fff; transition:all .3s; border-radius:15px;}
 .area-main .section01 .swiper-pagination-bullet-active {max-width:100%;}
 .area-main .section01 .categories {border-bottom:1px solid #e1e1e1;}
-.area-main .section01 .categories .wrap {display:flex;}
+.area-main .section01 .categories .wrap {display:flex; width:100%;}
 .area-main .section01 .categories .category {display:block; flex:1; padding:20px; border-left:1px solid #e1e1e1; text-align: center;}
 .area-main .section01 .categories .category:hover .title {color:#5E9CCB;}
 .area-main .section01 .categories .category .title {margin-top:4px; font-size:18px; font-family: scoreDream; font-weight:500; transition:all .3s;}

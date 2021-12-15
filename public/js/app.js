@@ -41120,14 +41120,16 @@ var render = function() {
                 attrs: { href: "/workers?category_ids[]=" + category.id }
               },
               [
-                _c("div", { staticClass: "img-wrap" }, [
-                  _c("img", {
-                    attrs: {
-                      src: category.img ? category.img.url : "",
-                      alt: ""
-                    }
-                  })
-                ]),
+                category.img && category.img.url
+                  ? _c("div", { staticClass: "img-wrap" }, [
+                      _c("img", {
+                        attrs: {
+                          src: category.img ? category.img.url : "",
+                          alt: ""
+                        }
+                      })
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("h3", { staticClass: "title" }, [
                   _vm._v(_vm._s(category.title))

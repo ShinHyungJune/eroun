@@ -37,7 +37,7 @@
             <div class="categories">
                 <div class="wrap">
                     <Link :href="`/workers?category_ids[]=${category.id}`" class="category" v-for="category in categories.data" :key="category.id">
-                        <div class="img-wrap">
+                        <div class="img-wrap" v-if="category.img && category.img.url">
                             <img :src="category.img ? category.img.url : ''" alt="">
                         </div>
 
