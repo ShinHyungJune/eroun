@@ -240,7 +240,7 @@
 @media screen and (max-width:1200px) {
     .items.type02 {margin:-10px -5px; margin-right:-20px; flex-wrap:nowrap; overflow-x:auto;}
     .items.type02 .item-wrap {flex:0 0 auto; flex-wrap:wrap; width:auto; padding:10px 5px;}
-    .items.type02 .item .title {font-size:16px;}
+    .items.type02 .item .title {width:246px; font-size:16px; word-break: keep-all;}
 }
 @media screen and (max-width:768px) {
 }
