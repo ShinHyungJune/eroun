@@ -24,7 +24,7 @@ class PageController extends Controller
 
         $banners = Banner::orderBy("order", "asc")->where("secret", false)->paginate(30);
 
-        $categories = Category::orderBy("order", "asc")->paginate(30);
+        $categories = Category::orderBy("created_at", "asc")->paginate(30);
 
         $populatedWorkers = User::where("worker", true)->where("accepted", true)
             ->orderBy("count_request", "desc")
