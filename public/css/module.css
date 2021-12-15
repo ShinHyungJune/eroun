@@ -535,6 +535,8 @@ input[type="date"]:focus:before {
 .m-input-email.type01 input:read-only {background-color:#F2774C !important; color:#fff !important; opacity:0.6;}
 
 @media screen and (max-width:768px){
+    .m-input-withBtn.type01 {flex-wrap:wrap;}
+    .m-input-withBtn.type01 .m-input-btn {margin-top:8px; padding:10px 16px; margin-left:0; border-radius:5px;}
     .m-input-phone {width:100%;}
     .m-input-time.type01 + .wave {display:block; margin:10px 0; text-align:center;}
     .m-input-address.type01 .m-input-withBtn .m-input-btn {padding:10px 25px;}
