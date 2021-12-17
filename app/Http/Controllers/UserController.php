@@ -52,7 +52,7 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
         if($request->worker) {
             $request->validate([
                 "img" => "nullable|image|max:20000",
-                "career" => "required|string|max:500"
+                "career" => "nullable|string|max:500"
             ]);
         }
 
