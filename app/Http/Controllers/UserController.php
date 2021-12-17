@@ -70,7 +70,7 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
             "name" => $request->name,
             "address" => $request->address,
             "email" => $request->email,
-            "career" => $request->career
+            // "career" => $request->career
         ]);
 
         if($request->img)
