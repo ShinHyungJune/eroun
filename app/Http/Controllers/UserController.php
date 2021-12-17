@@ -76,7 +76,7 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
         if($request->img)
             auth()->user()->addMedia($request->img)->toMediaCollection("img", "s3");
 
-        return redirect("/")->with("success", "성공적으로 처리되었습니다.");
+        return redirect("/?show=false")->with("success", "성공적으로 처리되었습니다.");
     }
 
     public function loginForm()
