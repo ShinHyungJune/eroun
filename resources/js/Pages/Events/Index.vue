@@ -21,7 +21,7 @@
 
                     <form @submit.prevent="filter">
                         <div class="m-input-text type01">
-                            <input type="text" placeholder="전문가명" v-model.lazy="form.word">
+                            <input type="text" placeholder="행사명" v-model.lazy="form.word">
 
                             <img src="/img/search.png" alt="" class="m-input-text-deco" @click="filter">
                         </div>

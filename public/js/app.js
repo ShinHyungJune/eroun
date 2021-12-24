@@ -40863,7 +40863,7 @@ var render = function() {
                         modifiers: { lazy: true }
                       }
                     ],
-                    attrs: { type: "text", placeholder: "전문가명" },
+                    attrs: { type: "text", placeholder: "행사명" },
                     domProps: { value: _vm.form.word },
                     on: {
                       change: function($event) {
