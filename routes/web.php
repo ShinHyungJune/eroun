@@ -64,3 +64,4 @@ Route::get("/events/{id}", [\App\Http\Controllers\EventController::class, "show"
 Route::get("/requests/create", [\App\Http\Controllers\RequestController::class, "create"]);
 Route::post("/requests", [\App\Http\Controllers\RequestController::class, "store"]);
 Route::get("/privacyPolicy", [\App\Http\Controllers\PageController::class, "privacyPolicy"]);
+Route::post("/ckeditor/upload", [\App\Http\Controllers\CkeEditorController::class, "upload"])->name('ckeditor.upload');
