@@ -1,5 +1,5 @@
 import MyUploadAdapter from "./MyUploadAdapter";
-
+import {Alignment} from "@ckeditor/ckeditor5-alignment";
 function SimpleUploadAdapterPlugin(editor) {
     editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
         return new MyUploadAdapter(loader);
@@ -16,27 +16,12 @@ class Ckeditor {
     create(){
         return ClassicEditor.create(document.querySelector(this.target), {
             extraPlugins: [SimpleUploadAdapterPlugin],
-
-            toolbar: {
-                /*items: [
-                    'heading',
-                    '|',
-                    'bold',
-                    'italic',
-                    'link',
-                    'bulletedList',
-                    'numberedList',
-                    'alignment',
-                    'imageUpload',
-                    'blockQuote',
-                    'undo',
-                    'redo'
-                ]*/
-            },
             alignment: {
-                options: ['left', 'right', 'center', 'justify']
+                options: [ 'left', 'right' ]
             },
-
+            toolbar: [
+                'heading', '|', 'bulletedList', 'numberedList', 'alignment', 'undo', 'redo'
+            ]
         }).then((editor) => {
             this.onCreate(editor);
         }).catch((error) => {
