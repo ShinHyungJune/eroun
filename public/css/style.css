@@ -625,7 +625,8 @@ br.m {display:none;}
 .area-login .btn img {position:absolute; top:50%; left:16px; transform:translateY(-50%);}
 .area-login .btn.naver {border:2px solid #41B649; color:#41B649;}
 .area-login .btn.kakao {border:2px solid #FCEE2D; color:#333;}
-.area-login .form.type02 {width:auto; max-width:1200px;}
+.area-update .form.type02 {width:auto; max-width:1200px;}
+
 @media screen and (max-width:768px) {
     .area-login {padding:80px 0; padding-bottom:80px !important;}
     .area-login .wrap {top:0;}

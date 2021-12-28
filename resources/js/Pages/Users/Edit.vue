@@ -1,5 +1,5 @@
 <template>
-    <div class="subContent area-register area-login">
+    <div class="subContent area-register area-login area-update">
         <div class="wrap">
             <div class="section-title type01">
                 <h3 class="title">회원정보입력</h3>
