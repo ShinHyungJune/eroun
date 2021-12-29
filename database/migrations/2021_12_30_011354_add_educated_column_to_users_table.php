@@ -14,7 +14,7 @@ class AddEducatedColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->boolean("educated")->default(false);
         });
     }
 
