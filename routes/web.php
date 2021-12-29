@@ -39,6 +39,8 @@ Route::middleware("guest")->group(function(){
 
 Route::middleware("auth")->group(function(){
     Route::get("/logout", [\App\Http\Controllers\UserController::class, "logout"]);
+    Route::patch("/applications/select/{application}", [\App\Http\Controllers\ApplicationController::class, "select"]);
+    Route::resource("/applications", \App\Http\Controllers\ApplicationController::class);
 });
 
 Route::get("/mailable", function(){
@@ -55,6 +57,7 @@ Route::middleware("auth")->group(function(){
 
 Route::get("/404", [\App\Http\Controllers\ErrorController::class, "notFound"]);
 Route::get("/403", [\App\Http\Controllers\ErrorController::class, "unAuthenticated"]);
+Route::resource("/commonUsers", \App\Http\Controllers\CommonUserController::class);
 Route::get("/workers", [\App\Http\Controllers\WorkerController::class, "index"]);
 Route::get("/workers/{id}", [\App\Http\Controllers\WorkerController::class, "show"]);
 
@@ -62,6 +65,7 @@ Route::get("/events", [\App\Http\Controllers\EventController::class, "index"]);
 Route::get("/events/{id}", [\App\Http\Controllers\EventController::class, "show"]);
 
 Route::get("/requests/create", [\App\Http\Controllers\RequestController::class, "create"]);
+Route::get("/requests/{requestModel}", [\App\Http\Controllers\RequestController::class, "show"]);
 Route::post("/requests", [\App\Http\Controllers\RequestController::class, "store"]);
 Route::get("/privacyPolicy", [\App\Http\Controllers\PageController::class, "privacyPolicy"]);
 Route::post("/ckeditor/upload", [\App\Http\Controllers\CkeEditorController::class, "upload"])->name('ckeditor.upload');

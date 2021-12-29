@@ -68,6 +68,7 @@ class IndexTest extends TestCase
             ]);
         }
 
+
         $this->get("/")->assertInertia(function($page) use ($categories){
             $items = $page->toArray()["props"]["populatedWorkers"]["data"];
 

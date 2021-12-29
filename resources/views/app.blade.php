@@ -17,8 +17,6 @@
     <script src="{{ asset('js/common.js') }}" defer></script>
     <script src="{{ asset('/js/ckeditor/build/ckeditor.js') }}" defer></script>
     <script src="{{ mix('/js/app.js') }}" defer></script>
-    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/translations/de.js"></script> -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Channel Plugin Scripts -->
     <!-- Channel Plugin Scripts -->

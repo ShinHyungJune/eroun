@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\UserResource;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\VerifyNumber;
@@ -14,6 +15,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
 {
+
     public function socialLogin(Request $request, $social)
     {
         $socialUser = Socialite::driver($social)->user();
@@ -71,8 +73,8 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
             "name" => $request->name,
             "address" => $request->address,
             "email" => $request->email,
-            "description" => $request->description
-            // "career" => $request->career
+            "description" => $request->description,
+            "career" => $request->career
         ]);
 
         if($request->img)

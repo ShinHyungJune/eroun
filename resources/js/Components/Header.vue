@@ -16,23 +16,30 @@
                     </div>
 
                     <div class="nav">
-                        <Link href="/users/edit" class="text">마이페이지</Link>
+                        <Link href="/requests" class="text">섭외요청</Link>
                     </div>
 
-                    <div class="nav">
-                        <Link href="/requests" class="text">문의내역</Link>
-                    </div>
-
+                    <!--
                     <div class="nav">
                         <Link href="/events" class="text">행사/이벤트</Link>
-                    </div>
+                    </div>-->
 
+<!--
                     <div class="nav" v-if="user && user.data.worker">
-                        <Link href="/events?worker=1" class="text">전문가소식</Link>
+                        <Link href="/events?worker=1" class="text">지역소상공인</Link>
+                    </div>
+-->
+
+                    <div class="nav">
+                        <Link href="/commonUsers" class="text">지역소상공인</Link>
                     </div>
 
                     <div class="nav">
                         <Link href="/workers" class="text">전문가</Link>
+                    </div>
+
+                    <div class="nav">
+                        <Link href="/users/edit" class="text">마이페이지</Link>
                     </div>
 
                     <div class="nav">

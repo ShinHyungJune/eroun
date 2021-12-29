@@ -15,7 +15,22 @@ class RequestResource extends JsonResource
      */
     public function toArray($request)
     {
+        $state = "ongoing";
+
+        $selectedApplication = $this->applications()->where("selected", true)->first();
+
+        $myApplication = $this->applications()->where("user_id", auth()->id())->first();
+
+        if($myApplication)
+            $state = "already";
+
+        if($selectedApplication)
+            $state = "finished";
+
         return [
+            "id" => $this->id,
+            "user_id" => $this->user->id,
+            "title" => $this->title,
             "worker" => $this->worker ? UserResource::make($this->worker) : "",
             "contact" => $this->contact,
             "category" => $this->category,
@@ -24,6 +39,8 @@ class RequestResource extends JsonResource
             "price" => $this->price,
             "style" => $this->style,
             "comment" => $this->comment,
+            "state" => $state,
+            "count" => $this->applications()->count(),
             "required_at" => Carbon::make($this->required_at)->format("Y-m-d H:i"),
             "created_at" => Carbon::make($this->created_at)->format("m.d")
         ];

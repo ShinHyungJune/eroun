@@ -38,6 +38,18 @@
                 </div>
 
                 <div class="m-input-wrap type01">
+                    <div class="m-input-title">한줄소개(타이틀)</div>
+
+                    <div class="m-input-withBtn type01">
+                        <div class="m-input-text type01">
+                            <input type="text" placeholder="예) 돌잔치 행사 진행해주실분 구합니다!" v-model="form.title">
+                        </div>
+                    </div>
+
+                    <p class="m-input-error" v-if="form.errors.title">{{form.errors.title}}</p>
+                </div>
+
+                <div class="m-input-wrap type01">
                     <div class="m-input-title">어떤 행사인가요?</div>
 
                     <div class="m-input-checkboxes type01">
@@ -61,6 +73,19 @@
                     </div>
                     <p class="m-input-error" v-if="form.errors.required_at">{{form.errors.required_at}}</p>
 
+                </div>
+
+                <div class="m-input-wrap type01">
+                    <div class="m-input-title">어느 지역 전문가가 필요하신가요?</div>
+
+                    <div class="m-input-checkboxes type01">
+                        <div class="m-input-checkbox type01" v-for="category in categories.data" :key="category.id">
+                            <input type="radio" :id="`category-${category.id}`" :value="category.id" v-model="form.category_id">
+                            <label :for="`category-${category.id}`">{{ category.title }}</label>
+                        </div>
+                    </div>
+
+                    <p class="m-input-error" v-if="form.errors.category_id">{{form.errors.category_id}}</p>
                 </div>
 
                 <!-- 주소 연동필요 -->
@@ -138,6 +163,7 @@ export default {
         return {
             form: this.$inertia.form({
                 worker_id: this.$page.props.worker_id,
+                title:"",
                 category: "",
                 time: "",
                 address: "",
@@ -146,8 +172,10 @@ export default {
                 price: "",
                 style: "",
                 comment: "",
-                required_at: ""
+                required_at: "",
+                category_id: ""
             }),
+            categories: this.$page.props.categories,
             requestCategories: this.$page.props.requestCategories,
             requestStyles: this.$page.props.requestStyles,
             sending : false,

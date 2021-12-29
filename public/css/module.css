@@ -423,6 +423,12 @@
 @media screen and (max-width:1200px){}
 @media screen and (max-width:768px){}
 
+.m-input-toggle.type01 {}
+.m-input-toggle.type01 input {display:none;}
+.m-input-toggle.type01 label {display:flex; align-items: center; color:#777777; font-size:18px;}
+.m-input-toggle.type01 label:before {content:""; display:inline-block; width:67px; height:30px; margin-right:24px; position:relative; background:url("../img/toggle-inactive.png") no-repeat;}
+.m-input-toggle.type01 input:checked + label:before {background:url("../img/toggle-active.png") no-repeat;}
+
 .m-input-top.type01 {display:flex; justify-content: space-between; align-items: flex-end; margin-bottom:20px;}
 .m-input-top.type01 .inputs {display:flex;}
 .m-input-top.type01 .m-input-select {margin-right:8px;}
@@ -452,6 +458,7 @@ input[type="date"]:focus:before {
     content: '' !important;
 }*/
 
+.m-input-img.type01 {max-width:258px; margin:0 auto;}
 .m-input-img.type01 input {display:none;}
 .m-input-img.type01 label {display:block; padding-top:74%; background-color:#efefef; transition: all .3s; cursor:pointer;}
 .m-input-img.type01 label:hover {box-shadow:0px 3px 6px rgba(0,0,0,0.16);}

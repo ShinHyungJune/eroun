@@ -33,7 +33,8 @@ class User extends Authenticatable implements HasMedia
         "verified_at",
         "social_id",
         "social_platform",
-        "accepted"
+        "accepted",
+        "educated"
     ];
 
     /**
@@ -94,5 +95,10 @@ class User extends Authenticatable implements HasMedia
     public function requests()
     {
         return $this->hasMany(Request::class);
+    }
+
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
     }
 }

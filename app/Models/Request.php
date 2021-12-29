@@ -11,6 +11,7 @@ class Request extends Model
 
     protected $fillable = [
         "worker_id",
+        "title",
         "contact",
         "category",
         "time",
@@ -30,5 +31,10 @@ class Request extends Model
     public function worker()
     {
         return $this->belongsTo(User::class,"worker_id");
+    }
+
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
     }
 }
