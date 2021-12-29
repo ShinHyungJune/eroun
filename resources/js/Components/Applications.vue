@@ -7,7 +7,7 @@
 
             <div class="btns">
                 <Link :href="`/workers/${item.user_id}`" class="m-btn type02">전문가 보기</Link>
-                <button type="button" @click="select(item)" class="m-btn type02 bg-primary" v-if="user.id === request.user_id">
+                <button type="button" @click="select(item)" class="m-btn type02 bg-primary" v-if="user && user.id === request.user_id">
                     {{item.selected ? "확정완료" : "섭외 확정하기"}}
                 </button>
             </div>

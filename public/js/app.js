@@ -41278,7 +41278,7 @@ var render = function() {
               [_vm._v("전문가 보기")]
             ),
             _vm._v(" "),
-            _vm.user.id === _vm.request.user_id
+            _vm.user && _vm.user.id === _vm.request.user_id
               ? _c(
                   "button",
                   {
