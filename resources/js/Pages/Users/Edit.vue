@@ -91,7 +91,8 @@
                     </div>
                 </div>
 
-                <textarea v-model="form.description" id="editor"></textarea>
+                <!-- <textarea v-model="form.description" id="editor"></textarea> -->
+                <textarea id="editor"></textarea>
 
                 <button class="m-btn type01 bg-primary">저장하기</button>
             </form>
@@ -99,7 +100,7 @@
     </div>
 </template>
 <script>
-import Ckeditor from "../../Utils/Ckeditor";
+import MyUploadAdapter from "../../Utils/MyUploadAdapter";
 
 export default {
     data() {
@@ -119,7 +120,11 @@ export default {
             sending: false,
             verified: false,
             number: "",
-            editor: null
+            editor: ClassicEditor,
+            editorConfig: {
+                language: 'ko',
+                toolbar: ['heading', '|', 'alignment',],
+            }
         }
     },
 
@@ -179,9 +184,24 @@ export default {
     },
 
     mounted() {
-        new Ckeditor("#editor", (editor) => {
-            this.editor = editor;
-        }).create();
+        function SimpleUploadAdapterPlugin(editor) {
+            editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+                return new MyUploadAdapter(loader);
+            };
+        }
+        ClassicEditor.create( document.querySelector( '#editor' ), {
+                licenseKey: '',
+                extraPlugins: [SimpleUploadAdapterPlugin],
+            } )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( error => {
+                console.error( 'Oops, something went wrong!' );
+                console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+                console.warn( 'Build id: yar6v8iu6o0s-3x0kw7tub9id' );
+                console.error( error );
+            } );
     }
 }
 </script>

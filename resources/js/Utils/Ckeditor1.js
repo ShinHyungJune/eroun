@@ -1,12 +1,11 @@
 import MyUploadAdapter from "./MyUploadAdapter";
-import {Alignment} from "@ckeditor/ckeditor5-alignment";
 function SimpleUploadAdapterPlugin(editor) {
     editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
         return new MyUploadAdapter(loader);
     };
 }
 
-class Ckeditor {
+class Ckeditor1 {
     constructor(target = "#editor", onCreate = () => {}) {
         this.target = target;
 
@@ -30,4 +29,4 @@ class Ckeditor {
     }
 }
 
-export default Ckeditor
+export default Ckeditor1
