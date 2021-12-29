@@ -273,8 +273,10 @@
 @media screen and (max-width:1200px) {
 
 }
-@media screen and (max-width:768px) {
-    .items.type03 .item {width:100%; flex-wrap:wrap;}
+@media screen and (max-width:768px) {]
+    .items.type03 {flex-wrap:wrap;
+    .items.type03 .item-wrap {width:100%;}
+    .items.type03 .item {flex-wrap:wrap;}
     .items.type03 .item .info {width:100%;}
     .items.type03 .item .date {font-size:20px;}
 }
