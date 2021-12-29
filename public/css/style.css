@@ -636,6 +636,7 @@ br.m {display:none;}
 
 .section.type01 {margin-top:40px; padding:40px; border:1px solid #e1e1e1; border-radius:5px;}
 .section.type01 .section-title {margin-bottom:20px; font-size:24px; font-weight:600; font-family: scoreDream;}
+.section.type01 img {max-width:100%;}
 
 @media screen and (max-width:1200px){
     .section.type01 {margin-top:20px; padding:20px;}
