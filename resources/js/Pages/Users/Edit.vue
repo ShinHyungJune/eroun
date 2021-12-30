@@ -42,7 +42,7 @@
                 <div class="m-input-wrap type01">
                     <div class="m-input-select type01">
                         <select name="" id="" v-model="form.worker">
-                            <option value="0">일반사용자</option>
+                            <option value="0">지역소상공인</option>
                             <option value="1">전문가</option>
                         </select>
                     </div>
