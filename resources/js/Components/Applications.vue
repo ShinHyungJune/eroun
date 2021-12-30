@@ -3,7 +3,9 @@
         <div class="item" v-for="item in items" :key="item.id">
             <h3 class="title">{{item.title}}</h3>
 
-            <p class="body">{{item.description}}</p>
+            <p class="body" style="margin-bottom:10px;">{{item.description}}</p>
+
+            <p class="contact" style="margin-bottom:40px; text-decoration: underline; color:#5E9CCB">{{phone(item.contact)}}</p>
 
             <div class="btns">
                 <Link :href="`/workers/${item.user_id}`" class="m-btn type02">전문가 보기</Link>
@@ -42,7 +44,66 @@
 
                     }
                 });
+            },
+            phone(num, type = 1){
+                var formatNum = '';
+
+
+
+                if(num.length==11){
+
+                    if(type==0){
+
+                        formatNum = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-****-$3');
+
+                    }else{
+
+                        formatNum = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+
+                    }
+
+                }else if(num.length==8){
+
+                    formatNum = num.replace(/(\d{4})(\d{4})/, '$1-$2');
+
+                }else{
+
+                    if(num.indexOf('02')==0){
+
+                        if(type==0){
+
+                            formatNum = num.replace(/(\d{2})(\d{4})(\d{4})/, '$1-****-$3');
+
+                        }else{
+
+                            formatNum = num.replace(/(\d{2})(\d{4})(\d{4})/, '$1-$2-$3');
+
+                        }
+
+                    }else{
+
+                        if(type==0){
+
+                            formatNum = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-***-$3');
+
+                        }else{
+
+                            formatNum = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+
+                        }
+
+                    }
+
+                }
+
+                return formatNum;
             }
+        },
+        computed() {
+            return {
+
+            }
+
         }
     }
 </script>

@@ -32,8 +32,10 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
 
         Auth::login($user);
 
+        /*
         if(!$user->contact)
             return redirect("users/edit");
+        */
 
         return redirect()->intended();
     }

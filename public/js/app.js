@@ -3011,6 +3011,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -3035,7 +3037,40 @@ __webpack_require__.r(__webpack_exports__);
           if (response.props.flash.success) alert(response.props.flash.success);
         }
       });
+    },
+    phone: function phone(num) {
+      var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+      var formatNum = '';
+
+      if (num.length == 11) {
+        if (type == 0) {
+          formatNum = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-****-$3');
+        } else {
+          formatNum = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+        }
+      } else if (num.length == 8) {
+        formatNum = num.replace(/(\d{4})(\d{4})/, '$1-$2');
+      } else {
+        if (num.indexOf('02') == 0) {
+          if (type == 0) {
+            formatNum = num.replace(/(\d{2})(\d{4})(\d{4})/, '$1-****-$3');
+          } else {
+            formatNum = num.replace(/(\d{2})(\d{4})(\d{4})/, '$1-$2-$3');
+          }
+        } else {
+          if (type == 0) {
+            formatNum = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-***-$3');
+          } else {
+            formatNum = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+          }
+        }
+      }
+
+      return formatNum;
     }
+  },
+  computed: function computed() {
+    return {};
   }
 });
 
@@ -41263,7 +41298,24 @@ var render = function() {
       return _c("div", { key: item.id, staticClass: "item" }, [
         _c("h3", { staticClass: "title" }, [_vm._v(_vm._s(item.title))]),
         _vm._v(" "),
-        _c("p", { staticClass: "body" }, [_vm._v(_vm._s(item.description))]),
+        _c(
+          "p",
+          { staticClass: "body", staticStyle: { "margin-bottom": "10px" } },
+          [_vm._v(_vm._s(item.description))]
+        ),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "contact",
+            staticStyle: {
+              "margin-bottom": "40px",
+              "text-decoration": "underline",
+              color: "#5E9CCB"
+            }
+          },
+          [_vm._v(_vm._s(_vm.phone(item.contact)))]
+        ),
         _vm._v(" "),
         _c(
           "div",
