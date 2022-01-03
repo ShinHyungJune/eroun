@@ -1,5 +1,5 @@
 <template>
-    <div class="subContent area-workerDetail">
+    <div class="subContent area-applicationList">
         <div class="section-title type02">
             <div class="wrap">
                 <h3 class="title">{{ request.title }}</h3>
@@ -12,7 +12,7 @@
 
         <div class="wrap">
             <div class="m-empty type01" v-if="applications.data.length === 0">
-                데이터가 없습니다.
+                지원자가 없습니다.
             </div>
 
             <applications :items="applications.data" :request="request" />

@@ -679,3 +679,19 @@ br.m {display:none;}
 .ck-editor h3 {font-size:20px; font-weight:600;}
 .ck-editor ol li {list-style-type: decimal;}
 .ck-editor ol li {list-style-type: decimal;}
+
+.area-applicationList .m-table.type01 th {text-align: center;}
+.area-applicationList .m-table.type01 td {text-align: center;}
+.area-applicationList .m-table.type01 td a {text-decoration: underline; font-weight:600;}
+.area-applicationList .m-table.type01 th:last-of-type {text-align: left;}
+.area-applicationList .m-table.type01 td:last-of-type {text-align: left;}
+.area-applicationList .m-table.type01 td button {color:#5E9CCB; white-space: nowrap; font-weight:600; font-size:14px; text-decoration: underline;}
+
+@media screen and (max-width:768px){
+    .area-applicationList .m-table {display:block; width:100%;}
+    .area-applicationList .m-table th {display:none;}
+    .area-applicationList .m-table tr {display:block; width:100%;}
+    .area-applicationList .m-table tbody {display:block; width:100%;}
+    .area-applicationList .m-table td {display:block; width:100%; text-align: left !important;}
+    .area-applicationList .m-table.type01 td button {display:block; text-align: center; margin:0 auto;}
+}

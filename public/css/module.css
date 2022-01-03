@@ -334,7 +334,7 @@
 .m-table.type01 {border:1px solid #e1e1e1;}
 .m-table.type01 tr:nth-child(2n) {background-color:#FDFBFA;}
 .m-table.type01 td {padding:18px 40px;}
-.m-table.type01 th {padding:18px 40px; font-weight:500; color:#5E9CCB; text-align: left;}
+.m-table.type01 th {padding:18px 40px; font-weight:500; color:#333; text-align: left;}
 .m-table.type01 th.point {color:#fff; background-color:#5E9CCB;}
 .m-table.type01 thead {border-bottom:1px solid #e1e1e1; background-color:#FDFBFA;}
 
@@ -850,3 +850,4 @@ pre {white-space: pre-line;}
 .m-error-page.type01 {padding:200px 0; text-align: center;}
 .m-error-page.type01 .title {margin-bottom:20px; font-size:60px; font-weight:800;}
 .m-error-page.type01 .body {font-size:24px;}
+

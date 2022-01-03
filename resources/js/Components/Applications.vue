@@ -1,19 +1,45 @@
 <template>
-    <div class="items type04">
-        <div class="item" v-for="item in items" :key="item.id">
-            <h3 class="title">{{item.title}}</h3>
+    <div class="table-wrap">
+        <table class="m-table type01">
+            <colgroup>
+                <col style="width:15%">
+                <col style="width:15%">
+                <col style="width:20%">
+                <col style="width:40%">
+                <col style="width:10%">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>전문가</th>
+                <th>연락처</th>
+                <th>제목</th>
+                <th>지원내용</th>
+                <th></th>
+            </tr>
+            </thead>
 
-            <p class="body" style="margin-bottom:10px;">{{item.description}}</p>
-
-            <p class="contact" style="margin-bottom:40px; text-decoration: underline; color:#5E9CCB">{{phone(item.contact)}}</p>
-
-            <div class="btns">
-                <Link :href="`/workers/${item.user_id}`" class="m-btn type02">전문가 보기</Link>
-                <button type="button" @click="select(item)" class="m-btn type02 bg-primary" v-if="user && user.id === request.user_id">
-                    {{item.selected ? "확정완료" : "섭외 확정하기"}}
-                </button>
-            </div>
-        </div>
+            <tbody>
+            <tr v-for="item in items" :key="item.id">
+                <td>
+                    <a :href="`/workers/${item.user_id}`">{{ item.user_name }}</a>
+                </td>
+                <td>
+                    {{phone(item.contact)}}
+                </td>
+                <td>
+                    {{item.title}}
+                </td>
+                <td>
+                    {{item.description}}
+                </td>
+                <td>
+                    <button type="button" @click="select(item)" class="m-btn type02 bg-primary" v-if="user && user.id === request.user_id">
+                        {{item.selected ? "확정완료" : "섭외 확정하기"}}
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 <script>
