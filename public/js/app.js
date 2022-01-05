@@ -45336,7 +45336,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "section type01" }, [
-        _c("h3", { staticClass: "section-title" }, [_vm._v("서비스 설명")]),
+        _c("h3", { staticClass: "section-title" }, [_vm._v("전문가 소개")]),
         _vm._v(" "),
         !_vm.worker.description
           ? _c(

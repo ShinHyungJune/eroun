@@ -47,7 +47,7 @@
             </div>
 
             <div class="section type01">
-                <h3 class="section-title">서비스 설명</h3>
+                <h3 class="section-title">전문가 소개</h3>
 
                 <div class="m-empty type01" v-if="!worker.description" style="border:none;">
                     내용이 없습니다.
