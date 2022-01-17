@@ -34,7 +34,10 @@ class User extends Authenticatable implements HasMedia
         "social_id",
         "social_platform",
         "accepted",
-        "educated"
+        "educated",
+        "store",
+        "bank",
+        "account"
     ];
 
     /**

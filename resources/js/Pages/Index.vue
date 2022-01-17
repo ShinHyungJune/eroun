@@ -47,6 +47,31 @@
             </div>
         </section>
 
+        <section class="section section06">
+            <div class="wrap">
+                <div class="section-title">
+                    <h3 class="title">행사/이벤트</h3>
+
+                    <Link href="/events" class="btn-more">더보기 <img src="/img/arrowSmallRight-gray.png" alt=""></Link>
+                </div>
+
+                <events :items="events.data" />
+            </div>
+
+        </section>
+
+        <section class="section section03">
+            <div class="wrap">
+                <div class="section-title">
+                    <h3 class="title">신규 소상공인</h3>
+
+                    <Link :href="`/commonUsers?orderBy=created_at`" class="btn-more">더보기 <img src="/img/arrowSmallRight-gray.png" alt=""></Link>
+                </div>
+
+                <workers :items="commonUsers.data" />
+            </div>
+        </section>
+
         <section class="section section02">
             <div class="wrap">
                 <div class="section-title">
@@ -56,18 +81,6 @@
                 </div>
 
                 <workers :items="populatedWorkers.data" />
-            </div>
-        </section>
-
-        <section class="section section03">
-            <div class="wrap">
-                <div class="section-title">
-                    <h3 class="title">최근 활동한 전문가</h3>
-
-                    <Link :href="`/workers?orderBy=updated_at`" class="btn-more">더보기 <img src="/img/arrowSmallRight-gray.png" alt=""></Link>
-                </div>
-
-                <workers :items="recentWorkers.data" />
             </div>
         </section>
 
@@ -113,19 +126,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </section>
-
-        <section class="section section06">
-            <div class="wrap">
-                <div class="section-title">
-                    <h3 class="title">행사/이벤트</h3>
-
-                    <Link href="/events" class="btn-more">더보기 <img src="/img/arrowSmallRight-gray.png" alt=""></Link>
-                </div>
-
-                <events :items="events.data" />
             </div>
 
         </section>
@@ -181,6 +181,7 @@ export default {
             counts: this.$page.props.counts,
             events: this.$page.props.events,
             companies: this.$page.props.companies,
+            commonUsers: this.$page.props.commonUsers,
             show: this.$page.props.show == "false" ? false : true
         }
     },

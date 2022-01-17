@@ -25,6 +25,7 @@ class InformationResource extends JsonResource
             "instagram"=>$this->instagram,
             "kakao"=>$this->kakao,
             "youtube"=>$this->youtube,
+            "file" => $this->file ? $this->file : ""
         ];
     }
 }

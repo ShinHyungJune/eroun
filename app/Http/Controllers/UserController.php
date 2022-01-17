@@ -51,7 +51,12 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
             "address" => "required|string|max:500",
             "email" => "required|string|max:500",
             "category_id" => "nullable|integer",
-            "description" => "nullable|string|max:50000"
+            "description" => "nullable|string|max:50000",
+
+            // 소상공인
+            "store" => "nullable|string|max:500",
+            "bank" => "nullable|string|max:500",
+            "account" => "nullable|string|max:500",
         ]);
 
         if($request->worker) {
@@ -76,7 +81,10 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
             "address" => $request->address,
             "email" => $request->email,
             "description" => $request->description,
-            "career" => $request->career
+            "career" => $request->career,
+            "store" => $request->store,
+            "bank" => $request->bank,
+            "account" => $request->account,
         ]);
 
         if($request->img)

@@ -166,6 +166,9 @@
 .footer .copyright {margin-top:20px; font-size:14px; font-weight:300;}
 .footer .socials {margin-left:auto;}
 .footer .social {margin-left:4px;}
+.footer .right {margin-left:auto;}
+.footer .btn {display:block; padding:10px 20px; margin-bottom:10px; background-color:#fff; border:2px solid #5E9CCB; border-radius:3px; color:#5E9CCB; text-align: center;}
+.footer .btn img {width:16px; margin-left:10px;}
 
 @media screen and (max-width:1200px){
     .footer .wrap {flex-wrap:wrap; justify-content: center; padding:40px 20px;}

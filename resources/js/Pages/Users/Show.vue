@@ -11,6 +11,28 @@
         </div>
 
         <div class="wrap">
+            <div class="detail type01">
+                <div class="m-ratioBox-wrap">
+                    <div class="m-ratioBox">
+                        <img :src="user.img ? user.img.url : ''" alt="">
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h3 class="title">{{ user.name }}</h3>
+                    <div class="infos">
+                        <div class="info">
+                            <div class="info-title">스마트 스토어</div>
+                            <a :href="user.store" target="_blank" class="info-body">{{ user.store ? user.store : "-" }}</a>
+                        </div>
+                        <div class="info">
+                            <div class="info-title">조회수</div>
+                            <p class="info-body">{{ user.count_view }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="section type01" style="min-height:400px;">
                 <h3 class="section-title">업체 설명</h3>
 

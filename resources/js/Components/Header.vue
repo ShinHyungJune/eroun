@@ -26,12 +26,12 @@
 
 <!--
                     <div class="nav" v-if="user && user.data.worker">
-                        <Link href="/events?worker=1" class="text">지역소상공인</Link>
+                        <Link href="/events?worker=1" class="text">협력소상공인</Link>
                     </div>
 -->
 
                     <div class="nav">
-                        <Link href="/commonUsers" class="text">지역소상공인</Link>
+                        <Link href="/commonUsers" class="text">협력소상공인</Link>
                     </div>
 
                     <div class="nav">

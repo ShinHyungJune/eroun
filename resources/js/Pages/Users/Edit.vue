@@ -33,22 +33,25 @@
                     </div>
                     <p class="m-input-error" v-if="form.errors.category_id">{{ form.errors.category_id }}</p>
                 </div>
+
                 <div class="m-input-wrap type01" v-if="form.worker == 1">
                     <div class="m-input-text type01">
                         <input type="text" placeholder="경력" v-model="form.career">
                     </div>
                     <p class="m-input-error" v-if="form.errors.career">{{ form.errors.career }}</p>
                 </div>
+
                 <div class="m-input-wrap type01">
                     <div class="m-input-select type01">
                         <select name="" id="" v-model="form.worker">
-                            <option value="0">지역소상공인</option>
+                            <option value="0">협력소상공인</option>
                             <option value="1">전문가</option>
                         </select>
                     </div>
                     <p class="m-input-comment">고객들로부터 의뢰를 받고자 하는 전문가님은 일반사용자가 아닌 전문가를 선택해주세요!</p>
                     <p class="m-input-error" v-if="form.errors.worker">{{ form.errors.worker }}</p>
                 </div>
+
                 <div class="m-input-wrap type01">
                     <div class="m-input-withBtn type01">
                         <div class="m-input-text type01">
@@ -95,6 +98,29 @@
                     </div>
                 </div>
 
+                <div class="m-input-wrap type01" v-if="form.worker != 1">
+                    <div class="m-input-text type01">
+                        <input type="text" placeholder="스마트 스토어 페이지" v-model="form.store" autocomplete="off">
+                        <p class="m-input-error" v-if="form.errors.store">{{ form.errors.store }}</p>
+                    </div>
+                </div>
+
+                <div class="m-input-wrap type01" v-if="form.worker != 1">
+                    <div class="m-input-text type01">
+                        <input type="text" placeholder="정산은행" v-model="form.bank" autocomplete="off">
+                        <p class="m-input-error" v-if="form.errors.bank">{{ form.errors.bank }}</p>
+                    </div>
+                </div>
+
+
+                <div class="m-input-wrap type01" v-if="form.worker != 1">
+                    <div class="m-input-text type01">
+                        <input type="text" placeholder="계좌번호" v-model="form.account" autocomplete="off">
+                        <p class="m-input-error" v-if="form.errors.account">{{ form.errors.account }}</p>
+                    </div>
+                </div>
+
+
                 <!-- <textarea v-model="form.description" id="editor"></textarea> -->
                 <div class="m-input-wrap type01">
                     <textarea id="editor" v-model="form.description"></textarea>
@@ -121,6 +147,9 @@ export default {
                 category_id: this.$page.props.user.data.categories.length !== 0 ? this.$page.props.user.data.categories[0].id : "",
                 career: this.$page.props.user.data.career,
                 description: this.$page.props.user.data.description,
+                bank: this.$page.props.user.data.bank,
+                store: this.$page.props.user.data.store,
+                account: this.$page.props.user.data.account,
             }),
             categories: this.$page.props.categories,
             sending: false,
@@ -132,7 +161,7 @@ export default {
     methods: {
         update() {
             this.form.description = window.editor.getData();
-            console.log(window.editor.getData());
+
             this.form.post("/users/update", {
                 forceFormData: true,
                 preserveScroll: true,

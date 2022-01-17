@@ -2,7 +2,7 @@
     <div class="subContent area-workerList">
         <div class="wrap">
             <div class="section-title type01">
-                <h3 class="title">지역소상공인 목록</h3>
+                <h3 class="title">협력소상공인 목록</h3>
                 <p class="body">다양한 업체들을 만나보세요!</p>
             </div>
 

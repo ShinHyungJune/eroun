@@ -17,20 +17,27 @@
                 <p class="copyright">Copyright@2021 by {{information.name_company}} Corporation ALL RIGHT RESERVED.</p>
             </div>
 
-            <div class="socials">
-                <a :href="information.facebook" target="_blank" class="social" v-if="information.facebook">
-                    <img src="/img/circleFacebook.png" alt="">
+            <div class="right">
+                <a :href="information.file ? information.file.url : ''" class="btn">
+                    회사 소개서 <img src="/img/download-primary.png" alt="">
                 </a>
-                <a :href="information.instagram" target="_blank" class="social" v-if="information.instagram">
-                    <img src="/img/circleInsta.png" alt="">
-                </a>
-                <a :href="information.kakao" target="_blank" class="social" v-if="information.kakao">
-                    <img src="/img/circleKakao.png" alt="">
-                </a>
-                <a :href="information.youtube" target="_blank" class="social" v-if="information.youtube">
-                    <img src="/img/circleYoutube.png" alt="">
-                </a>
+
+                <div class="socials">
+                    <a :href="information.facebook" target="_blank" class="social" v-if="information.facebook">
+                        <img src="/img/circleFacebook.png" alt="">
+                    </a>
+                    <a :href="information.instagram" target="_blank" class="social" v-if="information.instagram">
+                        <img src="/img/circleInsta.png" alt="">
+                    </a>
+                    <a :href="information.kakao" target="_blank" class="social" v-if="information.kakao">
+                        <img src="/img/circleKakao.png" alt="">
+                    </a>
+                    <a :href="information.youtube" target="_blank" class="social" v-if="information.youtube">
+                        <img src="/img/circleYoutube.png" alt="">
+                    </a>
+                </div>
             </div>
+
 
 
         </div>

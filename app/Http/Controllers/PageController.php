@@ -38,6 +38,10 @@ class PageController extends Controller
             ->orderBy("created_at", "desc")
             ->paginate(4);
 
+        $commonUsers = User::where("worker", false)
+            ->orderBy("created_at", "desc")
+            ->paginate(4);
+
         $counts = [
             "workers" => User::where("worker", true)->where("accepted", true)->count(),
             "requests" => \App\Models\Request::count(),
@@ -56,7 +60,8 @@ class PageController extends Controller
             "newWorkers" => UserResource::collection($newWorkers),
             "counts" => $counts,
             "events" => EventResource::collection($events),
-            "companies" => CompanyResource::collection($companies)
+            "companies" => CompanyResource::collection($companies),
+            "commonUsers" => UserResource::collection($commonUsers)
         ]);
     }
 
