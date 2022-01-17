@@ -10,6 +10,7 @@ use App\Models\VerifyNumber;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -38,6 +39,86 @@ class UserController extends \ShinHyungJune\SocialLogin\Http\UserController
         */
 
         return redirect()->intended();
+    }
+
+
+    public function create()
+    {
+        $categories = Category::paginate(30);
+
+        return Inertia::render("Users/Create", [
+            "categories" => CategoryResource::collection($categories)
+        ]);
+
+    }
+
+    public function login(Request $request)
+    {
+        $data = $request->validate([
+            "contact" => "required|string|max:500",
+            "password" => "required|string|max:500",
+        ]);
+
+        if(auth()->attempt($request->all())) {
+            session()->regenerate();
+
+            return redirect("/?show=false");
+        }
+
+        return Inertia::render("Users/Login", [
+            "errors" => [
+                "email" => __("socialLogin.invalid")
+            ]
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $request["worker"] = $request->boolean("worker");
+
+        $request->validate([
+            "worker" => "required|boolean",
+            "contact" => "required|string|unique:users|max:500",
+            "name" => "required|string|max:500",
+            "address" => "required|string|max:500",
+            "email" => "required|string|max:500",
+            "category_id" => "nullable|integer",
+            "description" => "nullable|string|max:50000",
+            "img" => "nullable|image|max:20000",
+            "career" => "nullable|string|max:500",
+            "password" => "required|string|max:500|confirmed",
+
+            // 소상공인
+            "store" => "nullable|string|max:500",
+            "bank" => "nullable|string|max:500",
+            "account" => "nullable|string|max:500",
+        ]);
+
+        $category = Category::find($request->category_id);
+
+        $request["contact"] = str_replace("-", "", "$request->contact");
+
+        $user = User::create([
+            "contact" => $request->contact,
+            "worker" => $request->boolean("worker"),
+            "name" => $request->name,
+            "address" => $request->address,
+            "email" => $request->email,
+            "description" => $request->description,
+            "career" => $request->career,
+            "store" => $request->store,
+            "bank" => $request->bank,
+            "account" => $request->account,
+            "password" => Hash::make($request->password)
+        ]);
+
+        if($request->img)
+            $user->addMedia($request->img)->toMediaCollection("img", "s3");
+
+        if($category)
+            $user->categories()->sync([$category->id]);
+
+        return redirect("/login?show=false")->with("success", "성공적으로 가입되었습니다.");
     }
 
     public function update(Request $request)

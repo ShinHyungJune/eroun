@@ -6,7 +6,40 @@
                 <p class="body">SNS 계정으로 쉽게 가입 및 로그인하세요.</p>
             </div>
 
-            <form action="" class="form type02">
+            <form action="" class="form type02" @submit.prevent="login">
+                <div class="m-input-wrap type01">
+                    <div class="m-input-text type01">
+                        <input type="text" placeholder="폰번호 아이디(- 없이)" v-model="form.contact">
+                    </div>
+
+                    <div class="m-input-error">{{form.errors.contact}}</div>
+                </div>
+
+
+                <div class="m-input-wrap type01">
+                    <div class="m-input-text type01">
+                        <input type="password" placeholder="비밀번호" v-model="form.password">
+                    </div>
+
+                    <div class="m-input-error">{{form.errors.password}}</div>
+                </div>
+
+                <div class="btns">
+                    <button class="btn bg-primary" style="color:#fff;">
+                        로그인
+                    </button>
+
+                    <div class="links">
+                        <a href="/users/create" class="link pc">
+                            회원가입
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-divide">
+                    <p class="divide">소셜 로그인</p>
+                </div>
+
                 <div class="btns">
                     <a href="/openLoginPop/kakao" class="btn kakao">
                         <img src="/img/circleBigKakao.png" alt="">
@@ -22,11 +55,23 @@
     </div>
 </template>
 <script>
-
+import Link from '@inertiajs/inertia-vue';
 export default {
+    components: {Link},
+    data(){
+        return {
+            form: this.$inertia.form({
+                contact:"",
+                password:""
+            })
+        }
+    },
+
     methods: {
         login() {
-            this.form.post("/login")
+            this.form.post("/login", {
+                preserveState: false
+            })
         }
     }
 }

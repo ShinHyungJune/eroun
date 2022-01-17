@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="nav">
-                        <Link href="/login" class="text" v-if="!user">
+                        <Link href="/login" class="text" v-if="!$page.props.user">
                             <img src="/img/user.png" alt="" class="color">
                             <img src="/img/user-white.png" alt="" class="incolor">
                             로그인
@@ -68,7 +68,7 @@ export default {
     components: {Link},
     data(){
         return {
-            user: this.$page.props.user
+
         }
     },
     methods: {
@@ -76,6 +76,6 @@ export default {
     },
     mounted() {
 
-    }
+    },
 }
 </script>
