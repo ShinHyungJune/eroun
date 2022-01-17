@@ -82,7 +82,7 @@ export default {
             if(!isLoadMore)
                 this.form.page = 1;
 
-            this.form.get("/users", {
+            this.form.get("/commonUsers", {
                 preserveScroll: true,
                 preserveState: true,
                 replace: true,

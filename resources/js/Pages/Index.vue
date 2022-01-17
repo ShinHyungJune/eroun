@@ -191,7 +191,6 @@ export default {
     },
 
     mounted(){
-        console.log(this.$page.props.show);
         new Swiper('.section01 .swiper .swiper-container', {
             autoplay: {
                 delay: 5000,

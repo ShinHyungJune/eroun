@@ -4118,7 +4118,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {},
   mounted: function mounted() {
-    console.log(this.$page.props.show);
     new Swiper('.section01 .swiper .swiper-container', {
       autoplay: {
         delay: 5000,
@@ -5194,7 +5193,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var isLoadMore = this.users.meta.current_page !== this.form.page;
       this.loading = true;
       if (!isLoadMore) this.form.page = 1;
-      this.form.get("/users", {
+      this.form.get("/commonUsers", {
         preserveScroll: true,
         preserveState: true,
         replace: true,
