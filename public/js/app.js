@@ -43422,7 +43422,7 @@ var render = function() {
                   ],
                   attrs: {
                     type: "text",
-                    placeholder: "예) 돌잔치 행사 진행해주실분 구합니다!"
+                    placeholder: "예) OOO시장 라이브커머스 진행 문의합니다."
                   },
                   domProps: { value: _vm.form.title },
                   on: {

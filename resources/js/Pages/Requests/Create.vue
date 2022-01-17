@@ -42,7 +42,7 @@
 
                     <div class="m-input-withBtn type01">
                         <div class="m-input-text type01">
-                            <input type="text" placeholder="예) 돌잔치 행사 진행해주실분 구합니다!" v-model="form.title">
+                            <input type="text" placeholder="예) OOO시장 라이브커머스 진행 문의합니다." v-model="form.title">
                         </div>
                     </div>
 
