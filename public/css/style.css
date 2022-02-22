@@ -694,7 +694,7 @@ br.m {display:none;}
 .area-applicationList .m-table.type01 th:last-of-type {text-align: left;}
 .area-applicationList .m-table.type01 td:last-of-type {text-align: left;}
 .area-applicationList .m-table.type01 td button {color:#5E9CCB; white-space: nowrap; font-weight:600; font-size:14px; text-decoration: underline;}
-
+.area-applicationList .m-table.type01 td .bg-primary {color:#fff;}
 @media screen and (max-width:768px){
     .area-applicationList .m-table {display:block; width:100%;}
     .area-applicationList .m-table th {display:none;}
