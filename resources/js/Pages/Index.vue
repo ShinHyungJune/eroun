@@ -8,7 +8,7 @@
             </button>
 
             <video muted autoplay loop>
-                <source src="/video/intro.mp4" type="video/mp4">
+                <source src="/video/intro02.mp4" type="video/mp4">
             </video>
         </div>
 

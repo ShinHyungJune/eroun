@@ -43153,7 +43153,7 @@ var render = function() {
             },
             [
               _c("source", {
-                attrs: { src: "/video/intro.mp4", type: "video/mp4" }
+                attrs: { src: "/video/intro02.mp4", type: "video/mp4" }
               })
             ]
           )
